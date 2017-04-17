@@ -1,0 +1,38 @@
+// INDEX PAGE
+.home
+  position: relative
+  z-index: 5
+  margin-top: 25vh
+  text-align: right
+  &__subtitle
+    font-size: 30px
+    line-height: 1
+  &__title
+    margin-left: auto
+    max-width: 570px
+    margin-top: 10px
+    text-transform: uppercase
+    font-size: 100px
+    line-height: 1
+    padding-bottom: 20px
+    border-bottom: 1px solid color(white a(20%))
+    margin-bottom: 20px
+  &__services
+    font-size: 20px
+  &__service
+    span
+      position: relative
+      display: inline-block
+      background: black
+      padding: 5px 10px
+      line-height: 1
+      &::before
+        display: inline-block
+        content: ''
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 20px
+        left: -10px
+        background: black
+        transform: skewX(-20deg)

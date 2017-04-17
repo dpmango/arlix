@@ -1,0 +1,42 @@
+doctype html
+<!--[if IE 8]>         <html class="ie8 oldie"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9 oldie"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class=""> <!--<![endif]-->
+  include shared/head.pug
+
+  body
+    .app
+      include shared/header.pug
+      
+      // SECTIONS
+      .js-slick-sections
+        // HOME
+        .section.section--home
+          .container
+            .home
+              .home__subtitle Пристальное внимание <br> к мелочам... и
+              .home__title ничего <br> лишнего
+              .home__services
+                .home__service
+                  span разработка сайтов
+                .home__service 
+                  span создание и разработка брендбуков
+                .home__service
+                  span дизайн логотипов
+                .home__service
+                  span дизайн и разработка мобильных приложений
+        // ABOUT
+        .section.section--about
+          .container
+            .about
+        // PORTFOLIO
+        .section.section--portfolio
+          .container
+            .about  
+        // CONTACTS
+        .section.section--contacts
+          .container
+            .about    
+            
+            
+      include shared/footer.pug
