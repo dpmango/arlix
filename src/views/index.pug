@@ -86,8 +86,25 @@ doctype html
         // PORTFOLIO
         .section.section--portfolio
           .container
-            .about
-              
+            .portfolio__wrapper
+              .portfolio__list
+                .portfolio__col
+                  a(href='#')
+                    img(src='images/svg/logos/cyberleninka.svg')
+                  a(href='#')
+                    img(src='images/svg/logos/oametrics.svg')
+                  a(href='#')
+                    img(src='images/svg/logos/bandmember.svg')
+                  a(href='#')
+                    img(src='images/svg/logos/rusean.svg')
+                .portfolio__col
+                  a(href='#')
+                    img(src='images/svg/logos/osetr.svg')
+                  a(href='#')
+                    img(src='images/svg/logos/haveadeal.svg')
+                  a(href='#')
+                    img(src='images/svg/logos/snab.svg')
+                    
         // CONTACTS
         .section.section--contacts
           .contact
@@ -99,10 +116,25 @@ doctype html
                   circle(cx='50%', cy='50%', r='200px')
           .contact__bottom
             .container
-              .contact__line ООО «Арликс»
-              .contact__line Тел.:
-            
-
+              .contact__wrapper
+                .contact__credentials
+                  .contact__line ООО «Арликс»
+                  .contact__line <span>Тел.:</span> +7 (916) 123_45_67
+                  .contact__line <span>Адрес:</span> Пресненская наб. 8, с. 1
+                  .contact__line.mt30 <span>Email:</span> info@arlix.ru
+                  .contact__line.mt30 <span>ОРГН:</span> 1155658027161
+                  .contact__line <span>КПП:</span> 561401001
+                form().contact__form
+                  .contact__form__fields
+                    .ui-input
+                      input(type='text' placeholder='Имя')
+                    .ui-input
+                      input(type='file' placeholder='Имя')
+                    .ui-input
+                      textarea(placeholder='сообщение...')
+                  button(type='submit')
+                    i.ico.ico-send
+                      
 
             
             

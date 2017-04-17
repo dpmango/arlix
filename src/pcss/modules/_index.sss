@@ -76,7 +76,6 @@
       display: inline-block
       border-bottom: 1px solid $colorPink
 
-
 .about-control
   position: absolute
   bottom: 7vh
@@ -104,6 +103,41 @@
       margin-right: 0
     &:hover:not(.active)
       border-color: color($colorYellow a(50%))
+
+// PORTFOLIO
+.portfolio
+  &__wrapper
+    position: relative
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    z-index: 5
+    max-width: 570px
+    margin-left: auto
+    margin-right: auto
+    text-align: center
+  &__list
+    margin-top: auto
+    margin-bottom: auto
+    display: flex
+    justify-content: space-between
+  &__col
+    flex: 0 0 45%
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    a
+      display: inline-block
+      min-height: 100px
+      text-align: center
+    img
+      max-width: 100%
+      opacity: .5
+      transition: all $transitionSpeed $ease
+      &:hover
+        opacity: 1
+
 
 
 // CONTACT
@@ -135,9 +169,58 @@
 
 .contact
   &__bottom
+    padding: 25px 0
     position: absolute
     bottom: 0
     height: 40vh
     left: 0
     right: 0
-    
+    z-index: 9
+    background: color(black a(80%))
+  &__wrapper
+    display: flex
+    justify-content: space-between
+  &__line
+    opacity: .7
+    span
+      opacity: .1
+  &__form
+    display: flex
+    align-items: flex-end
+    &__fields
+      margin-right: 15px
+    button
+      position: relative
+      display: inline-block
+      border-radius: 50%
+      border-radius: 50%
+      background: transparent
+      line-height: 1
+      size: 75px
+      border: 2px solid $colorYellow
+      transition: all $transitionSpeed $ease
+      cursor: pointer
+      &:hover
+        background: $colorYellow
+      .ico
+        position: absolute
+        top: 50%
+        left: 45%
+        transform: translate(-50%, -50%)
+
+.ui-input
+  margin-bottom: 10px
+  position: relative
+  input, textarea
+    -webkit-appearance: none
+    border-radius: 5px
+    display: inline-block
+    width: 100%
+    border: none
+    background: color(white a(10%))
+    padding: 15px
+    transition: all $transitionSpeed ease
+    box-shadow: none
+    &:focus
+      outline: none
+      background: color(white a(60%))
