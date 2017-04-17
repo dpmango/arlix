@@ -17,8 +17,6 @@
     padding-bottom: 20px
     border-bottom: 1px solid color(white a(20%))
     margin-bottom: 20px
-  &__services
-    font-size: 20px
   &__service
     span
       position: relative
@@ -36,3 +34,110 @@
         left: -10px
         background: black
         transform: skewX(-20deg)
+
+
+// ABOUT
+.about
+  position: relative
+  background-repeat: no-repeat
+  background-size: cover
+  &--firm
+    background-image: url('../images/bgFirm.png')
+  &::after
+    display: block
+    content: ' '
+    position: absolute 0 0 0 0
+    background: linear-gradient(to top, color(black a(90%)), color(black a(50%)))
+    z-index: 2
+  &__wrapper
+    position: relative
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    z-index: 5
+    max-width: 570px
+    margin-left: auto
+    margin-right: auto
+    text-align: center
+  &__title
+    font-size: 75px
+    border-bottom: 1px solid color(white a(20%))
+    padding-bottom: 5vh
+    margin-bottom: 5vh
+  &__details
+    width: 100%
+    margin-bottom: 5vh
+    text-align: right
+    margin-top: 5vh
+
+    margin-right: -30px
+    a
+      display: inline-block
+      border-bottom: 1px solid $colorPink
+
+
+.about-control
+  position: absolute
+  bottom: 7vh
+  left: 50%
+  transform: translateX(-50%)
+  display: flex
+  z-index: 5
+  &__item
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    margin-right: 10px
+    border-radius: 50%
+    background: transparent
+    line-height: 1
+    padding-top: 3px
+    size: 75px
+    border: 2px solid color(white a(20%))
+    transition: all $transitionSpeed $ease
+    cursor: pointer
+    &.active
+      border-color: $colorYellow
+    &:last-child
+      margin-right: 0
+    &:hover:not(.active)
+      border-color: color($colorYellow a(50%))
+
+
+// CONTACT
+.contact
+  position: relative
+  width: 100%
+  height: 100%
+  min-height: 100vh
+  &::after
+    display: block
+    content: ' '
+    position: absolute 0 0 0 0
+    background: linear-gradient(to top, color(black a(90%)), color(black a(50%)))
+    z-index: 2
+  svg
+    min-height: 100vh
+
+#map
+  position: absolute 0 0 0 0
+  z-index: 4
+  -webkit-clip-path: url("#clip-shape")
+  clip-path: url("#clip-shape")
+
+#map-over
+  position: absolute 0 0 0 0
+  bottom: 0
+  z-index: 1
+  opacity: .5
+
+.contact
+  &__bottom
+    position: absolute
+    bottom: 0
+    height: 40vh
+    left: 0
+    right: 0
+    

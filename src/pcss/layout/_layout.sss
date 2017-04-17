@@ -17,7 +17,7 @@ body, html
   background: white
   color: $fontColor
   font-family: 'UKIJQolyazma', 'Helvetica Neue', Helvetica, Arial, sans-serif
-  font-size: 16px
+  font-size: 20px
   max-width: 100%
   overflow-x: hidden
   margin: 0
@@ -51,7 +51,8 @@ body, html
 
 .section
   position: relative
-  min-height: 100vh
+  min-height: calc(100vh + 6px)
+  margin: -3px
   background-repeat: no-repeat
   background-position: center center
   background-size: cover
@@ -63,3 +64,24 @@ body, html
       position: absolute 0 0 0 0
       background: linear-gradient(35deg, #ff00e4, #ffd800)
       opacity: .95
+  &--portfolio
+    background-image: url('../images/bgHome.png')
+    &::after
+      display: block
+      content: ' '
+      position: absolute 0 0 0 0
+      background: linear-gradient(to top, color(black a(90%)), color(black a(50%)))
+
+
+// preload
+.preloader
+  display: flex
+  justify-content: center
+  align-items: center
+  position: absolute 0 0 0 0
+  z-index: 99
+  background: linear-gradient(35deg, #ff00e4, #ffd800)
+  transition: all $transitionSpeed $ease
+  &.ready
+    transform: translate3d(0, -100%, 0)
+    pointer-events: none

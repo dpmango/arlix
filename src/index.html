@@ -9,6 +9,7 @@
   <!--build:css css/styles.css-->
   <link rel="stylesheet" href="components/normalize-css/normalize.css" type="text/css">
   <link rel="stylesheet" href="components/slick-carousel/slick/slick.css" type="text/css">
+  <link rel="stylesheet" href="css/animate.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <!--endbuild-->
   <meta name="description" content=""><!--[if lt IE 9]>
@@ -16,12 +17,28 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <body>
+  <div class="preloader">
+    <div class="header__logo">
+      <div class="header__logo__a">a</div>
+      <div class="header__logo__aa">a</div>
+      <div class="header__logo__aaa">a</div>
+      <div class="header__logo__main">arlix</div>
+      <div class="header__logo__x">a</div>
+      <div class="header__logo__xx">a</div>
+      <div class="header__logo__xxx">a</div>
+    </div>
+  </div>
   <div class="app">
     <div class="header">
       <div class="container">
-        <div class="header__wrapper">
-          <div class="header__logo"><span>arlix</span></div><a class="header__phone" href="tel:">+7 (916) 123-45-67</a>
-        </div>
+        <div class="header__wrapper"><a class="header__logo" href="#">
+            <div class="header__logo__a">a</div>
+            <div class="header__logo__aa">a</div>
+            <div class="header__logo__aaa">a</div>
+            <div class="header__logo__main">arlix</div>
+            <div class="header__logo__x">a</div>
+            <div class="header__logo__xx">a</div>
+            <div class="header__logo__xxx">a</div></a><a class="header__phone" href="tel:">+7 (916) 123-45-67</a></div>
       </div>
     </div>
     <div class="navi">
@@ -48,24 +65,84 @@
       </div>
       <!-- ABOUT-->
       <div class="section section--about">
-        <div class="container">
-          <div class="about"></div>
+        <div class="about-control">
+          <div class="about-control__item active" data-about="1"> <span>www</span></div>
+          <div class="about-control__item" data-about="2"> <span>app</span></div>
+          <div class="about-control__item" data-about="3"> <span>seo</span></div>
+          <div class="about-control__item" data-about="4"> <span>logo</span></div>
+        </div>
+        <div class="js-slick-about">
+          <!-- service-->
+          <div class="about about--firm">
+            <div class="container">
+              <div class="about__wrapper">
+                <div class="about__title">Создание сайтов</div>
+                <div class="about__description">Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!</div>
+                <div class="about__details"><a href="#">Подробнее</a></div>
+              </div>
+            </div>
+          </div>
+          <!-- service-->
+          <div class="about about--firm">
+            <div class="container">
+              <div class="about__wrapper">
+                <div class="about__title">Разработка приложений</div>
+                <div class="about__description">Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!</div>
+                <div class="about__details"><a href="#">Подробнее</a></div>
+              </div>
+            </div>
+          </div>
+          <!-- service-->
+          <div class="about about--firm">
+            <div class="container">
+              <div class="about__wrapper">
+                <div class="about__title">Поисковая оптимизация</div>
+                <div class="about__description">Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!</div>
+                <div class="about__details"><a href="#">Подробнее</a></div>
+              </div>
+            </div>
+          </div>
+          <!-- next service-->
+          <div class="about about--firm">
+            <div class="container">
+              <div class="about__wrapper">
+                <div class="about__title">Фирменный стиль</div>
+                <div class="about__description">Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!</div>
+                <div class="about__details"><a href="#">Подробнее      </a></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- PORTFOLIO-->
       <div class="section section--portfolio">
         <div class="container">
-          <div class="about"> </div>
+          <div class="about"></div>
         </div>
       </div>
       <!-- CONTACTS-->
       <div class="section section--contacts">
-        <div class="container">
-          <div class="about">   </div>
+        <div class="contact">
+          <div id="map"></div>
+          <div id="map-over"></div>
+          <svg width="100%" height="100%">
+            <defs>
+              <clippath id="clip-shape">
+                <circle cx="50%" cy="50%" r="200px"></circle>
+              </clippath>
+            </defs>
+          </svg>
+        </div>
+        <div class="contact__bottom">
+          <div class="container">
+            <div class="contact__line">ООО «Арликс»</div>
+            <div class="contact__line">Тел.:</div>
+          </div>
         </div>
       </div>
     </div>
     <!-- SCRIPTS-->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <!--build:js js/scripts.min.js-->
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="components/slick-carousel/slick/slick.js"></script>
