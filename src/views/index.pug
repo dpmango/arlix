@@ -6,14 +6,14 @@ doctype html
 
   body
     .preloader
-      .header__logo
+      .header__logo.animated
         .header__logo__a a
         .header__logo__aa a
         .header__logo__aaa a
         .header__logo__main arlix
-        .header__logo__x a
-        .header__logo__xx a
-        .header__logo__xxx a
+        .header__logo__x x
+        .header__logo__xx x
+        .header__logo__xxx x
         
 
     .app
@@ -89,20 +89,20 @@ doctype html
             .portfolio__wrapper
               .portfolio__list
                 .portfolio__col
-                  a(href='#')
+                  a(href='#modalPortfolio1')
                     img(src='images/svg/logos/cyberleninka.svg')
-                  a(href='#')
+                  a(href='#modalPortfolio2')
                     img(src='images/svg/logos/oametrics.svg')
-                  a(href='#')
+                  a(href='#modalPortfolio3')
                     img(src='images/svg/logos/bandmember.svg')
-                  a(href='#')
+                  a(href='#modalPortfolio4')
                     img(src='images/svg/logos/rusean.svg')
                 .portfolio__col
-                  a(href='#')
+                  a(href='#modalPortfolio5')
                     img(src='images/svg/logos/osetr.svg')
-                  a(href='#')
+                  a(href='#modalPortfolio6')
                     img(src='images/svg/logos/haveadeal.svg')
-                  a(href='#')
+                  a(href='#modalPortfolio7')
                     img(src='images/svg/logos/snab.svg')
                     
         // CONTACTS
@@ -134,8 +134,17 @@ doctype html
                       textarea(placeholder='сообщение...')
                   button(type='submit')
                     i.ico.ico-send
-                      
-
-            
-            
+      
+    
+                                                
       include shared/footer.pug
+      
+    // MODALS
+    .modal#modalPortfolio6
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--homedeal
+            img(src='images/svg/logos/haveadeal.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            img(src='images/portfolio_homedeal.png')

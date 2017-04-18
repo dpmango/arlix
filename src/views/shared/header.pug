@@ -1,25 +1,34 @@
+// HEADER
 .header
   .container
     .header__wrapper
-      a(href='#').header__logo
-        .header__logo__a a
-        .header__logo__aa a
-        .header__logo__aaa a
-        .header__logo__main arlix
-        .header__logo__x a
-        .header__logo__xx a
-        .header__logo__xxx a
-        
-      a(href='tel:').header__phone +7 (916) 123-45-67
+      .header__left
+        a(href='#').header__logo
+          .header__logo__a a
+          .header__logo__aa a
+          .header__logo__aaa a
+          .header__logo__main arlix
+          .header__logo__x x
+          .header__logo__xx x
+          .header__logo__xxx x
+          
+        a(href='tel:').header__phone +7 (916) 123-45-67
+      
+      .hamburger.hamburger--squeeze
+        .hamburger-box
+          .hamburger-inner
 
+
+
+// NAVI
 .navi
   .container
     .navi__list
-      a(href='#' data-section='1').active
+      a(href='#' data-section='1' data-hash='home').active
         span главная
-      a(href='#' data-section='2')
+      a(href='#' data-section='2' data-hash='about')
         span о нас
-      a(href='#' data-section='3')
+      a(href='#' data-section='3' data-hash='portfolio')
         span портфолио
-      a(href='#' data-section='4')
+      a(href='#' data-section='4' data-hash='contacts')
         span контакты

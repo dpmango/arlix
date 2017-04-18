@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+  // get params from url
+  function getQueryVariable(variable) {
+   var query = window.location.search.substring(1);
+   var vars = query.split('&');
+   for (var i=0; i<vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (pair[0] == variable) {
+      return pair[1];
+    }
+   }
+    return false;
+  }
+
   const _window = $(window);
   const _document = $(document);
 
@@ -7,6 +20,12 @@ $(document).ready(function(){
 	$('[href="#"]').click(function(e) {
 		e.preventDefault();
 	});
+
+  // HAMBURGER
+  $('.hamburger').on('click', function(){
+    $(this).toggleClass('is-active');
+    $('.navi').toggleClass('active');
+  });
 
   // PRELOADER
   var $div = $('.section--home');
@@ -35,16 +54,66 @@ $(document).ready(function(){
     lazyLoad: 'ondemand',
     swipe: false,
     touchMove: false,
-    fade: true
+    fade: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          draggable: true,
+          verticalSwiping: true,
+          swipe: true,
+          touchMove: true
+        }
+      }
+    ]
   });
+
+  // CHECK SAVED STATE
+  if(window.location.hash) {
+    var hash = window.location.hash.substring(1)
+    $('.navi__list a').each(function(i, val){
+      if ( $(this).data('hash') == hash ){
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+
+        $('.js-slick-sections').slick('slickGoTo', $(this).data('section') - 1 );
+      }
+    });
+  }
 
   // SLICK NAVIGATION
   $('.navi__list').on('click', 'a', function(e){
 
+    // url actions
+    var loc = window.location.href;
+    var sectionQ = getQueryVariable('section');
+    var modalQ = getQueryVariable('modal');
+
+    // get params from clicked element
+    var hash = $(this).data('hash');
+    var section = $(this).data('section') - 1 ;
+
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
 
-    $('.js-slick-sections').slick('slickGoTo', $(this).data('section') - 1 );
+    $('.js-slick-sections').slick('slickGoTo', section );
+
+    // save state
+    window.location.hash = hash;
+
+    // if(sectionQ) {
+    //   // if section present - replace param
+    //   loc = location.href.replace("section=" + sectionQ, "section=" + hash);
+    // } else{
+    //   // else just add section
+    //   loc += "?section="+ hash +"";
+    // }
+
+    // if (sectionQ && !modalQ){
+    //   // if section param present and no modal - add filter
+    //   loc += "&section="+ hash +"";
+
+
   });
 
   // SLICK ANIMATIONS
@@ -96,6 +165,28 @@ $(document).ready(function(){
   $("input[name='phone']").mask("9 (999) 999-9999");
   $("#tin").mask("99-9999999");
   $("#ssn").mask("999-99-9999");
+
+  // MODAL
+  $("a[href^='#modal']").on('click', function(e){
+    var targetModal = $(this).attr('href');
+    $('.app').addClass('tilt');
+    $(targetModal).addClass('active');
+    e.preventDefault();
+  });
+
+  // close modal
+  $('.ico-close').on('click', function(){
+    $('.app').removeClass('tilt');
+    $(this).closest('.modal').removeClass('active');
+  });
+
+  // $(document).click(function (e) {
+  //   var value = $('.modal__container');
+  //   if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
+  //     $('.app').removeClass('tilt');
+  //     $(this).closest('.modal').removeClass('active');
+  //   }
+  // });
 
   // YANDEX MAPS
   ymaps.ready(init);

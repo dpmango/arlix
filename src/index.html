@@ -18,32 +18,41 @@
 </head>
 <body>
   <div class="preloader">
-    <div class="header__logo">
+    <div class="header__logo animated">
       <div class="header__logo__a">a</div>
       <div class="header__logo__aa">a</div>
       <div class="header__logo__aaa">a</div>
       <div class="header__logo__main">arlix</div>
-      <div class="header__logo__x">a</div>
-      <div class="header__logo__xx">a</div>
-      <div class="header__logo__xxx">a</div>
+      <div class="header__logo__x">x</div>
+      <div class="header__logo__xx">x</div>
+      <div class="header__logo__xxx">x</div>
     </div>
   </div>
   <div class="app">
+    <!-- HEADER-->
     <div class="header">
       <div class="container">
-        <div class="header__wrapper"><a class="header__logo" href="#">
-            <div class="header__logo__a">a</div>
-            <div class="header__logo__aa">a</div>
-            <div class="header__logo__aaa">a</div>
-            <div class="header__logo__main">arlix</div>
-            <div class="header__logo__x">a</div>
-            <div class="header__logo__xx">a</div>
-            <div class="header__logo__xxx">a</div></a><a class="header__phone" href="tel:">+7 (916) 123-45-67</a></div>
+        <div class="header__wrapper">
+          <div class="header__left"><a class="header__logo" href="#">
+              <div class="header__logo__a">a</div>
+              <div class="header__logo__aa">a</div>
+              <div class="header__logo__aaa">a</div>
+              <div class="header__logo__main">arlix</div>
+              <div class="header__logo__x">x</div>
+              <div class="header__logo__xx">x</div>
+              <div class="header__logo__xxx">x</div></a><a class="header__phone" href="tel:">+7 (916) 123-45-67</a></div>
+          <div class="hamburger hamburger--squeeze">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- NAVI-->
     <div class="navi">
       <div class="container">
-        <div class="navi__list"><a class="active" href="#" data-section="1"><span>главная</span></a><a href="#" data-section="2"><span>о нас</span></a><a href="#" data-section="3"><span>портфолио</span></a><a href="#" data-section="4"><span>контакты</span></a></div>
+        <div class="navi__list"><a class="active" href="#" data-section="1" data-hash="home"><span>главная</span></a><a href="#" data-section="2" data-hash="about"><span>о нас</span></a><a href="#" data-section="3" data-hash="portfolio"><span>портфолио</span></a><a href="#" data-section="4" data-hash="contacts"><span>контакты</span></a></div>
       </div>
     </div>
     <!-- SECTIONS-->
@@ -119,8 +128,8 @@
         <div class="container">
           <div class="portfolio__wrapper">
             <div class="portfolio__list">
-              <div class="portfolio__col"><a href="#"><img src="images/svg/logos/cyberleninka.svg"></a><a href="#"><img src="images/svg/logos/oametrics.svg"></a><a href="#"><img src="images/svg/logos/bandmember.svg"></a><a href="#"><img src="images/svg/logos/rusean.svg"></a></div>
-              <div class="portfolio__col"><a href="#"><img src="images/svg/logos/osetr.svg"></a><a href="#"><img src="images/svg/logos/haveadeal.svg"></a><a href="#"><img src="images/svg/logos/snab.svg"></a></div>
+              <div class="portfolio__col"><a href="#modalPortfolio1"><img src="images/svg/logos/cyberleninka.svg"></a><a href="#modalPortfolio2"><img src="images/svg/logos/oametrics.svg"></a><a href="#modalPortfolio3"><img src="images/svg/logos/bandmember.svg"></a><a href="#modalPortfolio4"><img src="images/svg/logos/rusean.svg"></a></div>
+              <div class="portfolio__col"><a href="#modalPortfolio5"><img src="images/svg/logos/osetr.svg"></a><a href="#modalPortfolio6"><img src="images/svg/logos/haveadeal.svg"></a><a href="#modalPortfolio7"><img src="images/svg/logos/snab.svg"></a></div>
             </div>
           </div>
         </div>
@@ -176,5 +185,14 @@
     <script src="js/libs/jquery.maskedinput.min.js"></script>
     <script src="js/main.js"></script>
     <!--endbuild-->
+  </div>
+  <!-- MODALS-->
+  <div class="modal" id="modalPortfolio6">
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <div class="modal__head modal__head--homedeal"><img src="images/svg/logos/haveadeal.svg" style="max-width: 185px;"><i class="ico ico-close"></i></div>
+        <div class="modal__content"><img src="images/portfolio_homedeal.png"></div>
+      </div>
+    </div>
   </div>
 </body>
