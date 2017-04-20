@@ -261,32 +261,49 @@ $(document).ready(function () {
 
   // YANDEX MAPS
   ymaps.ready(init);
-  var myMap, myPlacemark;
 
+  var myMap, myMap2, myPlacemark, synchroListeners;
+  var coors = [55.747115, 37.539078];
+  var mapsZoom = 16;
+
+  // Инициализируем карты
   function init() {
     myMap = new ymaps.Map("map", {
-      center: [55.76, 37.64],
-      zoom: 7
+      center: coors,
+      zoom: mapsZoom
     });
 
-    myMap.behaviors.get('drag').disable();
+    // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
 
-    myPlacemark = new ymaps.Placemark([55.76, 37.64], {
-      hintContent: 'Москва!',
-      balloonContent: 'Столица России'
+
+    // немного замедляем скролл
+    myMap.options.set('scrollZoomSpeed', 1.25);
+
+    myPlacemark = new ymaps.Placemark(coors, {
+      hintContent: 'ARLIX!',
+      balloonContent: 'Россия, Москва, Пресненская набережная, 8с1'
+    }, {
+      preset: 'islands#redDotIcon'
     });
 
     myMap.geoObjects.add(myPlacemark);
+
+    // вторая карта - наложение как фон
+    myMap2 = new ymaps.Map("map-over", {
+      center: coors,
+      zoom: mapsZoom,
+      controls: []
+    });
+
+    myMap2.options.set('scrollZoomSpeed', 1.25);
+
+    // синхронизация карт
+    synchroListeners = synchronizeMaps(myMap, myMap2);
   }
 
-  // map overlay
-  ymaps.ready(init2);
-  var myMap2;
-
-  function init2() {
-    myMap2 = new ymaps.Map("map-over", {
-      center: [55.76, 37.64],
-      zoom: 7
+  function synchronizeMaps(firstMap, secondMap) {
+    firstMap.events.add(["boundschange", "wheel", "actiontick", "sizechange", "marginchange"], function (e) {
+      secondMap.setCenter(firstMap.getCenter(), firstMap.getZoom());
     });
   }
 
