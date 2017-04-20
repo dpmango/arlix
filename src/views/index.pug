@@ -56,7 +56,7 @@ doctype html
                   .about__title Создание сайтов
                   .about__description Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!
                   .about__details
-                    a(href='#') Подробнее
+                    a(href='#modalAbout1') Подробнее
             // service
             .about.about--apps
               .container
@@ -64,7 +64,7 @@ doctype html
                   .about__title Разработка приложений
                   .about__description Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!
                   .about__details
-                    a(href='#') Подробнее
+                    a(href='#modalAbout2') Подробнее
             // service
             .about.about--seo
               .container
@@ -72,7 +72,7 @@ doctype html
                   .about__title Поисковая оптимизация
                   .about__description Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!
                   .about__details
-                    a(href='#') Подробнее
+                    a(href='#modalAbout3') Подробнее
             // next service
             .about.about--firm
               .container
@@ -80,7 +80,7 @@ doctype html
                   .about__title Фирменный стиль
                   .about__description Ваш бренд только выходит на рынок или вы чувствуете, что айдентика вашей компании нуждается <br> в обновлении? Мы поможем обрести современный <br> визуальный образ!
                   .about__details
-                    a(href='#') Подробнее      
+                    a(href='#modalAbout4') Подробнее      
                 
                   
         // PORTFOLIO
@@ -108,12 +108,17 @@ doctype html
         // CONTACTS
         .section.section--contacts
           .contact
-            #map
+            .map-container
+              .map-container__wrap
+                #map
             #map-over
             svg(width='100%', height='100%')
               defs
                 clippath#clip-shape
                   circle(cx='50%', cy='50%', r='200px')
+                clippath#clip-shape2
+                  circle(cx='50%', cy='50%', r='195px')
+                        
           .contact__bottom
             .container
               .contact__wrapper
@@ -141,6 +146,87 @@ doctype html
       include shared/footer.pug
       
     // MODALS
+    .modal#modalAbout1
+      .modal__wrapper
+        .modal__container
+          .modal__head
+            .modal__head__title Создание сайтов
+            i.ico.ico-close
+          .modal__content
+    .modal#modalAbout2
+      .modal__wrapper
+        .modal__container
+          .modal__head
+            .modal__head__title Разработка приложений
+            i.ico.ico-close
+          .modal__content
+    .modal#modalAbout3
+      .modal__wrapper
+        .modal__container
+          .modal__head
+            .modal__head__title Поисковая оптимизация
+            i.ico.ico-close
+          .modal__content
+    .modal#modalAbout4
+      .modal__wrapper
+        .modal__container
+          .modal__head
+            .modal__head__title Фирменный стиль
+            i.ico.ico-close
+          .modal__content
+
+                
+    // PORTFOLIO MODALS
+    .modal#modalPortfolio1
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--cyberleninka
+            img(src='images/svg/logos/cyberleninka.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            img(src='images/portfolio_cyberleninka.png')
+              
+    .modal#modalPortfolio2
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--oametrics
+            img(src='images/svg/logos/oametrics.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            picture
+              img(src='images/portfolio_oametrics.png', srcset='images/portfolio_oametrics.png 1x, images/portfolio_oametrics@2x.png 2x')
+
+    .modal#modalPortfolio3
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--bandmember
+            img(src='images/svg/logos/bandmember.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            picture
+              img(src='images/portfolio_bandmember.png', srcset='images/portfolio_bandmember.png 1x, images/portfolio_bandmember@2x.png 2x')
+              
+    .modal#modalPortfolio4
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--rusean
+            img(src='images/svg/logos/rusean.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            img(src='images/portfolio_rusean.png')
+    
+    .modal#modalPortfolio5
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--osetr
+            img(src='images/svg/logos/osetr.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            picture
+              img(src='images/portfolio_osetr.png', srcset='images/portfolio_osetr.png 1x, images/portfolio_osetr@2x.png 2x')
+              
+              
+              
     .modal#modalPortfolio6
       .modal__wrapper
         .modal__container
@@ -148,4 +234,14 @@ doctype html
             img(src='images/svg/logos/haveadeal.svg' style='max-width: 185px')
             i.ico.ico-close
           .modal__content
-            img(src='images/portfolio_homedeal.png')
+            picture
+              img(src='images/portfolio_homedeal.png', srcset='images/portfolio_homedeal.png 1x, images/portfolio_homedeal@2x.png 2x')
+    
+    .modal#modalPortfolio7
+      .modal__wrapper
+        .modal__container
+          .modal__head.modal__head--snab
+            img(src='images/svg/logos/snab.svg' style='max-width: 185px')
+            i.ico.ico-close
+          .modal__content
+            img(src='images/portfolio_snab.png')

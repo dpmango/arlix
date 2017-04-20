@@ -59,6 +59,14 @@ body, html {
         font-size: 16px;
     }
 }
+::-moz-selection {
+    background: #ffd800;
+    color: white;
+}
+::selection {
+    background: #ffd800;
+    color: white;
+}
 .container {
     position: relative;
     margin-right: auto;
@@ -1329,8 +1337,10 @@ button:focus {
     left: 20px;
     z-index: 8;
     color: white;
-    -webkit-transition: all .35s ease-out;
-    transition: all .35s ease-out;
+    -webkit-transition: -webkit-transform .35s ease-out;
+    transition: -webkit-transform .35s ease-out;
+    transition: transform .35s ease-out;
+    transition: transform .35s ease-out, -webkit-transform .35s ease-out;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -1721,6 +1731,11 @@ button:focus {
         margin-right: auto;
         text-align: center;
     }
+    .about-control {}
+    .about-control__item {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+    }
 }
 @media(max-width: 568px) {
     .about {}
@@ -1850,6 +1865,24 @@ button:focus {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
     content: ' ';
 }
+.map-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+}
+.map-container__wrap {
+    position: relative;
+    z-index: 4;
+    min-height: 100vh;
+    background: #ffd800;
+    -webkit-clip-path: circle(200px at center);
+    clip-path: circle(200px at center);
+    -webkit-clip-path: url("#clip-shape");
+            clip-path: url("#clip-shape");
+}
 #map {
     position: absolute;
     top: 0;
@@ -1857,8 +1890,10 @@ button:focus {
     bottom: 0;
     left: 0;
     z-index: 4;
-    -webkit-clip-path: url("#clip-shape");
-    clip-path: url("#clip-shape");
+    -webkit-clip-path: circle(200px at center);
+    clip-path: circle(200px at center);
+    -webkit-clip-path: url("#clip-shape2");
+            clip-path: url("#clip-shape2");
 }
 #map-over {
     position: absolute;
@@ -2052,9 +2087,8 @@ button:focus {
 .modal__wrapper {
     position: relative;
     margin-top: 10vh;
-    min-height: 100vh;
     width: 100%;
-    height: 100%;
+    height: 90vh;
 }
 .modal__container {
     margin-right: auto;
@@ -2078,6 +2112,7 @@ button:focus {
             justify-content: center;
     margin-bottom: 10px;
     height: 100px;
+    background: #ffd800;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
     -webkit-box-align: center;
@@ -2092,15 +2127,40 @@ button:focus {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
 }
+.modal__head__title {
+    padding-top: 10px;
+    color: white;
+    font-size: 45px;
+    line-height: 1;
+}
 .modal__head--homedeal {
     background: -webkit-linear-gradient(55deg, #671867, #00bfeb);
     background: linear-gradient(35deg, #671867, #00bfeb);
 }
+.modal__head--oametrics {
+    background: #3f88c5;
+}
+.modal__head--osetr {
+    background: #000;
+}
+.modal__head--bandmamber {
+    background: #822492;
+}
 .modal__content {
     overflow-y: scroll;
+    margin-bottom: 10px;
+    height: -webkit-calc(90vh - 110px);
+    height: calc(90vh - 110px);
 }
 .modal__content img {
     max-width: 100%;
+}
+@media(max-width: 1020px) {
+    .modal {}
+    .modal__container {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -108,7 +108,9 @@ $(document).ready(function () {
         draggable: true,
         verticalSwiping: true,
         swipe: true,
-        touchMove: true
+        touchMove: true,
+        fade: false,
+        vertical: true
       }
     }]
   });
@@ -144,7 +146,7 @@ $(document).ready(function () {
     if (nextSlide == 1) {
       $('.about-control').addClass('animate');
       // trigger parent slider
-      setTimeout(triggerAbout, 800);
+      setTimeout(triggerAbout, 100);
       // triggerAbout();
     } else {
       $('.about-control').removeClass('animate');
@@ -155,8 +157,14 @@ $(document).ready(function () {
     var activeSlide = $('.about-control__item.active').data('about');
     if (activeSlide == 3) {
       $('.about-control__item:first-child').click();
+      setTimeout(function () {
+        $('.about-control__item:nth-child(4)').click();
+      }, 300);
     } else {
       $('.about-control__item.active').next().click();
+      setTimeout(function () {
+        $('.about-control__item.active').prev().click();
+      }, 300);
     }
 
     // $('.js-slick-about').slick('slickGoTo', activeSlide - 1);
