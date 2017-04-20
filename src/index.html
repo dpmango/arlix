@@ -5,7 +5,7 @@
   <!-- MADE WITH LOVE BY <> SERGEY KHMELEVSKOY </>-->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Site name</title>
+  <title>ARLIX</title>
   <!--build:css css/styles.css-->
   <link rel="stylesheet" href="components/normalize-css/normalize.css" type="text/css">
   <link rel="stylesheet" href="components/slick-carousel/slick/slick.css" type="text/css">
@@ -52,7 +52,7 @@
     <!-- NAVI-->
     <div class="navi">
       <div class="container">
-        <div class="navi__list"><a class="active" href="#" data-section="1" data-hash="home"><span>главная</span></a><a href="#" data-section="2" data-hash="about"><span>о нас</span></a><a href="#" data-section="3" data-hash="portfolio"><span>портфолио</span></a><a href="#" data-section="4" data-hash="contacts"><span>контакты</span></a></div>
+        <div class="navi__list"><a class="active" href="#" data-section="0" data-hash="home"><span>главная</span></a><a href="#" data-section="1" data-hash="about"><span>о нас</span></a><a href="#" data-section="2" data-hash="portfolio"><span>портфолио</span></a><a href="#" data-section="3" data-hash="contacts"><span>контакты</span></a></div>
       </div>
     </div>
     <!-- SECTIONS-->
@@ -75,14 +75,14 @@
       <!-- ABOUT-->
       <div class="section section--about">
         <div class="about-control">
-          <div class="about-control__item active" data-about="1"> <span>www</span></div>
-          <div class="about-control__item" data-about="2"> <span>app</span></div>
-          <div class="about-control__item" data-about="3"> <span>seo</span></div>
-          <div class="about-control__item" data-about="4"> <span>logo</span></div>
+          <div class="about-control__item active" data-about="0"> <span>www</span></div>
+          <div class="about-control__item" data-about="1"> <span>app</span></div>
+          <div class="about-control__item" data-about="2"> <span>seo</span></div>
+          <div class="about-control__item" data-about="3"> <span>logo</span></div>
         </div>
         <div class="js-slick-about">
           <!-- service-->
-          <div class="about about--firm">
+          <div class="about about--www">
             <div class="container">
               <div class="about__wrapper">
                 <div class="about__title">Создание сайтов</div>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <!-- service-->
-          <div class="about about--firm">
+          <div class="about about--apps">
             <div class="container">
               <div class="about__wrapper">
                 <div class="about__title">Разработка приложений</div>
@@ -102,7 +102,7 @@
             </div>
           </div>
           <!-- service-->
-          <div class="about about--firm">
+          <div class="about about--seo">
             <div class="container">
               <div class="about__wrapper">
                 <div class="about__title">Поисковая оптимизация</div>
@@ -152,10 +152,10 @@
             <div class="contact__wrapper">
               <div class="contact__credentials">
                 <div class="contact__line">ООО «Арликс»</div>
-                <div class="contact__line"><span>Тел.:</span> +7 (916) 123_45_67</div>
+                <div class="contact__line mt20"><span>Тел.:</span> <a href='tel:+79161234567'>+7 (916) 123_45_67</a></div>
                 <div class="contact__line"><span>Адрес:</span> Пресненская наб. 8, с. 1</div>
-                <div class="contact__line mt30"><span>Email:</span> info@arlix.ru</div>
-                <div class="contact__line mt30"><span>ОРГН:</span> 1155658027161</div>
+                <div class="contact__line mt20"><span>Email:</span> <a href='malto:info@arlix.ru'>info@arlix.ru</a></div>
+                <div class="contact__line mt20"><span>ОРГН:</span> 1155658027161</div>
                 <div class="contact__line"><span>КПП:</span> 561401001</div>
               </div>
               <form class="contact__form">
@@ -163,11 +163,12 @@
                   <div class="ui-input">
                     <input type="text" placeholder="Имя">
                   </div>
-                  <div class="ui-input">
-                    <input type="file" placeholder="Имя">
+                  <div class="ui-input ui-input--file">
+                    <input class="inputfile" id="file" type="file" name="file" data-multiple-caption="выбрано {count} файлов" multiple="">
+                    <label for="file">Прикрепить файл</label>
                   </div>
                   <div class="ui-input">
-                    <textarea placeholder="сообщение..."></textarea>
+                    <textarea placeholder="сообщение..." rows="5"></textarea>
                   </div>
                 </div>
                 <button type="submit"><i class="ico ico-send"></i></button>

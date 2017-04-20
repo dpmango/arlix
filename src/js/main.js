@@ -2,19 +2,6 @@
 
 $(document).ready(function () {
 
-  // get params from url
-  function getQueryVariable(variable) {
-    var query = window.location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split('=');
-      if (pair[0] == variable) {
-        return pair[1];
-      }
-    }
-    return false;
-  }
-
   var _window = $(window);
   var _document = $(document);
 
@@ -29,6 +16,14 @@ $(document).ready(function () {
     $('.navi').toggleClass('active');
   });
 
+  // if something was clicked - hide mobile menu
+  $('.navi__list a').on('click', function () {
+    setTimeout(function () {
+      $('.hamburger').removeClass('is-active');
+      $('.navi').removeClass('active');
+    }, 500);
+  });
+
   // PRELOADER
   var $div = $('.section--home');
   var bg = $div.css('background-image');
@@ -36,9 +31,59 @@ $(document).ready(function () {
   if (bg) {
     var src = bg.replace(/(^url\()|(\)$|[\"\'])/g, '');
     var $img = $('<img>').attr('src', src).on('load', function () {
-      $('.preloader').addClass('ready');
+      // set delay, so users with fast connection can see preloader :)
+      setTimeout(function () {
+        $('.preloader').addClass('ready');
+      }, 1500);
     });
   }
+
+  // LOGO ANIMATION
+  function appendLetters() {
+    function appendA() {
+      var letter = $('<div class="header__logo__ajs">a</div>').insertBefore('.header__logo__main');
+      setTimeout(function () {
+        letter.remove();
+      }, 1800);
+    }
+    function appendX() {
+      var letter = $('<div class="header__logo__xjs">x</div>').insertAfter('.header__logo__main');
+
+      setTimeout(function () {
+        letter.remove();
+      }, 1800);
+
+      // .animate({
+      //   'dumb': '90'
+      // }, {
+      //   step: function (now, fx) {
+      //       $(this).css({"transform": "translate3d(" + now + "px, 0px, 0px)"});
+      //   },
+      //   duration: 900,
+      //   easing: 'linear',
+      //   queue: false,
+      //   complete: function () {
+      //     $(this).remove();
+      //   }
+      // }, 'linear');
+    }
+
+    appendA();
+    appendX();
+  }
+
+  // fire on hover
+  var timerId;
+  $('.header__logo').on('mouseenter', function () {
+    appendLetters();
+    timerId = setInterval(function () {
+      appendLetters();
+    }, 300);
+  });
+
+  $('.header__logo').on('mouseleave', function () {
+    clearInterval(timerId);
+  });
 
   // SLICK
   $('.js-slick-sections').slick({
@@ -76,43 +121,64 @@ $(document).ready(function () {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
 
-        $('.js-slick-sections').slick('slickGoTo', $(this).data('section') - 1);
+        $('.js-slick-sections').slick('slickGoTo', $(this).data('section'));
       }
     });
+    // refactor - why does the callback for section is not fired on slickGoTo??
+    if (hash == "about") {
+      $('.about-control').addClass('animate');
+    }
+  }
+
+  // SLICK SECTIONS CALLBACK
+  $('.js-slick-sections').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    $('.navi__list a').each(function (i, val) {
+      if ($(val).data('section') == nextSlide) {
+        $(val).addClass('active');
+      } else {
+        $(val).removeClass('active');
+      }
+    });
+
+    // about animation
+    if (nextSlide == 1) {
+      $('.about-control').addClass('animate');
+      // trigger parent slider
+      setTimeout(triggerAbout, 800);
+      // triggerAbout();
+    } else {
+      $('.about-control').removeClass('animate');
+    }
+  });
+
+  function triggerAbout() {
+    var activeSlide = $('.about-control__item.active').data('about');
+    if (activeSlide == 3) {
+      $('.about-control__item:first-child').click();
+    } else {
+      $('.about-control__item.active').next().click();
+    }
+
+    // $('.js-slick-about').slick('slickGoTo', activeSlide - 1);
+
+    // $('.js-slick-about .slick-slide:nth-child('+ activeSlide + 1 +')').addClass('slick-acitve');
   }
 
   // SLICK NAVIGATION
   $('.navi__list').on('click', 'a', function (e) {
-
     // url actions
     var loc = window.location.href;
-    var sectionQ = getQueryVariable('section');
-    var modalQ = getQueryVariable('modal');
 
     // get params from clicked element
     var hash = $(this).data('hash');
-    var section = $(this).data('section') - 1;
-
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
+    var section = $(this).data('section');
 
     $('.js-slick-sections').slick('slickGoTo', section);
 
     // save state
     window.location.hash = hash;
 
-    // if(sectionQ) {
-    //   // if section present - replace param
-    //   loc = location.href.replace("section=" + sectionQ, "section=" + hash);
-    // } else{
-    //   // else just add section
-    //   loc += "?section="+ hash +"";
-    // }
-
-    // if (sectionQ && !modalQ){
-    //   // if section param present and no modal - add filter
-    //   loc += "&section="+ hash +"";
-
+    // window.history.pushState("", "", hash);
   });
 
   // SLICK ANIMATIONS
@@ -142,11 +208,19 @@ $(document).ready(function () {
 
   // about navigation
   $('.about-control').on('click', '.about-control__item', function (e) {
+    $('.js-slick-about').slick('slickGoTo', $(this).data('about'));
+  });
 
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
-
-    $('.js-slick-about').slick('slickGoTo', $(this).data('about') - 1);
+  // Slick about callback
+  $('.js-slick-about').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    event.stopPropagation();
+    $('.about-control__item').each(function (i, val) {
+      if ($(val).data('about') == nextSlide) {
+        $(val).addClass('active');
+      } else {
+        $(val).removeClass('active');
+      }
+    });
   });
 
   // handle logo click
@@ -215,4 +289,18 @@ $(document).ready(function () {
       zoom: 7
     });
   }
+
+  // FILE SELECT
+  var inputs = document.querySelectorAll('.inputfile');
+  Array.prototype.forEach.call(inputs, function (input) {
+    var label = input.nextElementSibling,
+        labelVal = label.innerHTML;
+
+    input.addEventListener('change', function (e) {
+      var fileName = '';
+      if (this.files && this.files.length > 1) fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);else fileName = e.target.value.split('\\').pop();
+
+      if (fileName) label.innerHTML = fileName;else label.innerHTML = labelVal;
+    });
+  });
 });

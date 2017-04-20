@@ -39,18 +39,18 @@ doctype html
         // ABOUT
         .section.section--about
           .about-control
-            .about-control__item.active(data-about='1') 
+            .about-control__item.active(data-about='0') 
               span www
-            .about-control__item(data-about='2') 
+            .about-control__item(data-about='1') 
               span app
-            .about-control__item(data-about='3') 
+            .about-control__item(data-about='2') 
               span seo
-            .about-control__item(data-about='4') 
+            .about-control__item(data-about='3') 
               span logo
             
           .js-slick-about
             // service
-            .about.about--firm
+            .about.about--www
               .container
                 .about__wrapper
                   .about__title Создание сайтов
@@ -58,7 +58,7 @@ doctype html
                   .about__details
                     a(href='#') Подробнее
             // service
-            .about.about--firm
+            .about.about--apps
               .container
                 .about__wrapper
                   .about__title Разработка приложений
@@ -66,7 +66,7 @@ doctype html
                   .about__details
                     a(href='#') Подробнее
             // service
-            .about.about--firm
+            .about.about--seo
               .container
                 .about__wrapper
                   .about__title Поисковая оптимизация
@@ -119,19 +119,20 @@ doctype html
               .contact__wrapper
                 .contact__credentials
                   .contact__line ООО «Арликс»
-                  .contact__line <span>Тел.:</span> +7 (916) 123_45_67
+                  .contact__line.mt20 <span>Тел.:</span> <a href='tel:+79161234567'>+7 (916) 123_45_67</a>
                   .contact__line <span>Адрес:</span> Пресненская наб. 8, с. 1
-                  .contact__line.mt30 <span>Email:</span> info@arlix.ru
-                  .contact__line.mt30 <span>ОРГН:</span> 1155658027161
+                  .contact__line.mt20 <span>Email:</span> <a href='malto:info@arlix.ru'>info@arlix.ru</a>
+                  .contact__line.mt20 <span>ОРГН:</span> 1155658027161
                   .contact__line <span>КПП:</span> 561401001
                 form().contact__form
                   .contact__form__fields
                     .ui-input
                       input(type='text' placeholder='Имя')
+                    .ui-input.ui-input--file
+                      input#file.inputfile(type='file', name='file', data-multiple-caption='выбрано {count} файлов', multiple='')
+                      label(for='file') Прикрепить файл
                     .ui-input
-                      input(type='file' placeholder='Имя')
-                    .ui-input
-                      textarea(placeholder='сообщение...')
+                      textarea(placeholder='сообщение...' rows='5')
                   button(type='submit')
                     i.ico.ico-send
       

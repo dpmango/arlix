@@ -56,8 +56,14 @@
   position: relative
   background-repeat: no-repeat
   background-size: cover
-  &--firm
+  &--www
     background-image: url('../images/bgFirm.png')
+  &--apps
+    background-image: url('../images/bgHome.png')
+  &--seo
+    background-image: url('../images/bgFirm.png')
+  &--firm
+    background-image: url('../images/bgHome.png')
   &::after
     display: block
     content: ' '
@@ -75,6 +81,9 @@
     margin-left: auto
     margin-right: auto
     text-align: center
+    opacity: 0
+    transform: scale(.8)
+    transition: transform .4s ease-out, opacity .45s .15s ease-in
   &__title
     font-size: 75px
     line-height: 1
@@ -86,11 +95,31 @@
     margin-bottom: 5vh
     text-align: right
     margin-top: 5vh
-
     margin-right: -30px
     a
+      position: relative
       display: inline-block
-      border-bottom: 1px solid $colorPink
+      &::after
+        display: block
+        content: ' '
+        position: absolute
+        bottom: -3px
+        left: 0
+        right: 0
+        height: 1px
+        background: $colorPink
+        transition: all $transitionSpeed $ease
+      &:hover
+        &::after
+          height: 2px
+          left: -5px
+          right: -5px
+
+.js-slick-about .slick-active
+  .about
+    &__wrapper
+      opacity: 1
+      transform: scale(1)
 
 .about-control
   position: absolute
@@ -99,6 +128,10 @@
   transform: translateX(-50%)
   display: flex
   z-index: 5
+  &.animate
+    .about-control__item
+      opacity: 1
+      transform: translate3d(0px, 0px, 0)
   &__item
     display: flex
     justify-content: center
@@ -110,9 +143,19 @@
     line-height: 1
     padding-top: 3px
     size: 75px
+    opacity: .5
     border: 2px solid color(white a(20%))
-    transition: all $transitionSpeed $ease
+    transform: translate3d(0px, 20vh, 0)
+    transition: border $transitionSpeed 0s $ease, transform .8s cubic-bezier(0.075, 0.82, 0.165, 1)
     cursor: pointer
+    &:nth-child(1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+    &:nth-child(2)
+      transition: border $transitionSpeed 0s $ease, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1)
+    &:nth-child(3)
+      transition: border $transitionSpeed 0s $ease, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1)
+    &:nth-child(4)
+      transition: border $transitionSpeed 0s $ease, transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1)
     &.active
       border-color: $colorYellow
     &:last-child
@@ -224,7 +267,7 @@
     padding: 25px 0
     position: absolute
     bottom: 0
-    height: 40vh
+    height: 300px
     left: 0
     right: 0
     z-index: 9
@@ -234,13 +277,23 @@
     justify-content: space-between
   &__line
     opacity: .7
+    margin-bottom: 5px
     span
-      opacity: .1
+      opacity: .5
+    a
+      &:hover
+        opacity: 1
+  &__credentials
+    flex: 1 1 50%
   &__form
+    margin-left: auto
+    flex: 1 1 50%
     display: flex
+    justify-content: flex-end
     align-items: flex-end
     &__fields
       margin-right: 15px
+      width: 400px
     button
       position: relative
       display: inline-block
@@ -252,6 +305,7 @@
       border: 2px solid $colorYellow
       transition: all $transitionSpeed $ease
       cursor: pointer
+      margin-bottom: 10px
       &:hover
         background: $colorYellow
       .ico
@@ -264,18 +318,43 @@
   margin-bottom: 10px
   position: relative
   input, textarea
+    font-size: 20px
     -webkit-appearance: none
     border-radius: 5px
     display: inline-block
     width: 100%
     border: none
     background: color(white a(10%))
-    padding: 15px
+    padding: 13px 15px
     transition: all $transitionSpeed ease
     box-shadow: none
     &:focus
       outline: none
       background: color(white a(60%))
+  textarea
+    max-height: 130px
+  &:last-child
+    margin-bottom: 0
+
+  &--file
+    input
+      width: 0.1px
+      height: 0.1px
+      opacity: 0
+      overflow: hidden
+      position: absolute
+      z-index: -1
+    label
+      line-height: 1
+      -webkit-appearance: none
+      border-radius: 5px
+      display: inline-block
+      width: 100%
+      border: none
+      background: color(white a(10%))
+      padding: 16px 15px 9px 15px
+      transition: all $transitionSpeed ease
+      cursor: pointer
 
 
 @media($mobile)
