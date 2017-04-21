@@ -3,6 +3,7 @@ $(document).ready(function(){
   const _window = $(window);
   const _document = $(document);
 
+
  	// Prevent # behavior
 	$('[href="#"]').click(function(e) {
 		e.preventDefault();
@@ -84,8 +85,9 @@ $(document).ready(function(){
     clearInterval(timerId);
   });
 
-
+  ////////////////
   // SLICK
+  ////////////////
   $('.js-slick-sections').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -119,18 +121,45 @@ $(document).ready(function(){
 
   // CHECK SAVED STATE
   if(window.location.hash) {
-    var hash = window.location.hash.substring(1)
-    $('.navi__list a').each(function(i, val){
-      if ( $(this).data('hash') == hash ){
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
+    var hash = window.location.hash.substring(1);
 
-        $('.js-slick-sections').slick('slickGoTo', $(this).data('section') );
+    // if modal
+    if ( hash.match("^modal") ){
+      // open modal
+      $('.app').addClass('tilt');
+      $('#'+ hash).addClass('active');
+
+      // set slide also
+
+      if ( hash.indexOf('modalPortfolio') == 0 ){
+        $('.js-slick-sections').slick('slickGoTo', 2 );
+        $('.navi__list a:nth-child(3)').siblings().removeClass('active');
+        $('.navi__list a:nth-child(3)').addClass('active');
+
+      } else if ( hash.match("^modalAbout") ) {
+
+        $('.js-slick-sections').slick('slickGoTo', 1 );
+        $('.navi__list a:nth-child(2)').siblings().removeClass('active');
+        $('.navi__list a:nth-child(2)').addClass('active');
       }
-    });
-    // refactor - why does the callback for section is not fired on slickGoTo??
-    if (  hash == "about" ){
-      $('.about-control').addClass('animate');
+
+    } else {
+      // if section
+      $('.navi__list a').each(function(i, val){
+        if ( $(this).data('hash') == hash ){
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          $('.js-slick-sections').slick('slickGoTo', $(this).data('section') );
+        }
+      });
+      // refactor - why does the callback for section is not fired on slickGoTo??
+      if (  hash == "about" ){
+        $('.about-control').addClass('animate');
+      }
+      if ( hash == "contacts" ){
+        $('.app').addClass('section-3');
+      }
     }
   }
 
@@ -154,6 +183,13 @@ $(document).ready(function(){
       $('.about-control').removeClass('animate');
     }
 
+    // append class
+    $('.app').removeClass('section-0').removeClass('section-1').removeClass('section-2').removeClass('section-3');
+    $('.app').addClass('section-'+nextSlide+'');
+
+  });
+  $('.js-slick-sections').on('beforeChange', function(){
+    _window.trigger('resize');
   });
 
   function triggerAbout(){
@@ -254,6 +290,9 @@ $(document).ready(function(){
     var targetModal = $(this).attr('href');
     $('.app').addClass('tilt');
     $(targetModal).addClass('active');
+
+    window.location.hash = targetModal;
+
     e.preventDefault();
   });
 
@@ -271,7 +310,11 @@ $(document).ready(function(){
   //   }
   // });
 
+
+
+  ////////////////
   // YANDEX MAPS
+  ////////////////
   ymaps.ready(init);
 
   var myMap, myMap2, myPlacemark, synchroListeners;
@@ -282,11 +325,11 @@ $(document).ready(function(){
   function init(){
     myMap = new ymaps.Map("map", {
         center: coors,
-        zoom: mapsZoom
+        zoom: mapsZoom,
+        controls: []
     });
 
     // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
-
 
     // немного замедляем скролл
     myMap.options.set('scrollZoomSpeed', 1.25);
@@ -321,8 +364,10 @@ $(document).ready(function(){
   }
 
 
+  ////////////////
+  // FILE SELECT - codedrops
+  ////////////////
 
-  // FILE SELECT
   var inputs = document.querySelectorAll( '.inputfile' );
   Array.prototype.forEach.call( inputs, function( input )
   {

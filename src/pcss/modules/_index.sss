@@ -197,6 +197,9 @@
     &__title
       font-size: 50px
 
+  .about-control
+    bottom: 13vh
+
 // PORTFOLIO
 .portfolio
   &__wrapper
@@ -225,17 +228,37 @@
       display: flex
       justify-content: center
       align-items: center
-      min-height: 100px
+      min-height: 95px
       text-align: center
+      &:hover
+        img
+          opacity: 1
     img
       max-width: 100%
       opacity: .5
       transition: all $transitionSpeed $ease
-      &:hover
-        opacity: 1
+
+@media(max-height: 650px)
+  .portfolio
+    &__wrapper
+      margin-top: 10vh
+
+@media($desktop)
+  .portfolio
+    &__wrapper
+      text-align: right
+      margin-right: 0px
+
+@media($tablet)
+  .portfolio
+    &__wrapper
+      text-align: center
+      margin-right: auto
 
 @media($mobile)
   .portfolio
+    &__wrapper
+      margin-top: 0vh
     &__col
       a
         min-height: 75px
@@ -374,11 +397,17 @@
       transition: all $transitionSpeed ease
       cursor: pointer
 
+@media($desktop)
+  .contact
+    &__form
+      &__fields
+        margin-right: 15px
+        width: 300px
 
-@media($mobile)
+@media(width <= 600px)
   .contact
     &__bottom
-      height: 50vh
+      height: 290px
     &__form
       display: none
 
@@ -447,3 +476,17 @@
     &__container
       margin-left: 20px
       margin-right: 20px
+
+@media($tablet)
+  .modal
+    &__head
+      &__title
+        font-size: 35px
+
+@media($mobile)
+  .modal
+    &__head
+      justify-content: flex-start
+      padding-left: 20px
+      &__title
+        font-size: 25px

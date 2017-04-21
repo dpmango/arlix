@@ -62,6 +62,16 @@ body, html
 .js-slick-sections
   padding: 0
 
+  .slick-active
+    .home, .portfolio__wrapper
+      opacity: 1
+      transform: scale(1)
+
+.home, .portfolio__wrapper
+  transform: scale(.8)
+  opacity: 0
+  transition: transform .4s ease-out, opacity .45s .15s ease-in
+
 .slick-list
   outline: none
   margin: 0
@@ -91,9 +101,6 @@ body, html
       position: absolute 0 0 0 0
       background: linear-gradient(to top, color(black a(90%)), color(black a(50%)))
 
-// @media(max-height: 600px)
-//   .section
-//     min-height: calc(600px + 6px)
 
 // preload
 .preloader
