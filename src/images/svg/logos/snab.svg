@@ -1,48 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1000 140" style="enable-background:new 0 0 1000 140;" xml:space="preserve">
+	 viewBox="0 0 1000 170" style="enable-background:new 0 0 1000 170;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#FFFFFF;stroke-width:3.2492;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
 	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#SVGID_1_);fill:#FFFFFF;}
 </style>
-<g>
-	<polyline class="st0" points="2,51.5 2,2.3 959.2,2.3 998,70 959.2,137.7 2,137.7 2,90.9 	"/>
-	<g>
-		<path class="st1" d="M132.2,111.5H67.9c-5.8,0-10.5-4.7-10.5-10.5V38.8c0-5.8,4.7-10.5,10.5-10.5h64.3V38H67.9
-			c-0.4,0-0.8,0.4-0.8,0.8V101c0,0.4,0.4,0.8,0.8,0.8h64.3V111.5z"/>
-		<path class="st1" d="M427,111.5h-58.6c-5.8,0-10.5-4.7-10.5-10.5V66.3c0-5.8,4.7-10.5,10.5-10.5H427c5.8,0,10.5,4.7,10.5,10.5V101
-			C437.5,106.8,432.8,111.5,427,111.5z M368.4,65.5c-0.4,0-0.8,0.4-0.8,0.8V101c0,0.4,0.4,0.8,0.8,0.8H427c0.4,0,0.8-0.4,0.8-0.8
-			V66.3c0-0.4-0.4-0.8-0.8-0.8H368.4z"/>
-		<path class="st1" d="M370.1,38.5h-9.7c0-5.8,4.7-10.5,10.5-10.5h64.3v9.7h-64.3C370.5,37.7,370.1,38,370.1,38.5z"/>
-		<path class="st1" d="M630.8,111.5h-64.3c-5.8,0-10.5-4.7-10.5-10.5V66.3c0-5.8,4.7-10.5,10.5-10.5h64.3v9.7h-64.3
-			c-0.4,0-0.8,0.4-0.8,0.8V101c0,0.4,0.4,0.8,0.8,0.8h64.3V111.5z"/>
-		<path class="st1" d="M565.7,38.5H556c0-5.8,4.7-10.5,10.5-10.5h64.3v9.7h-64.3C566.1,37.7,565.7,38,565.7,38.5z"/>
-		<path class="st1" d="M822.5,111.5h-64.3c-5.8,0-10.5-4.7-10.5-10.5V66.3c0-5.8,4.7-10.5,10.5-10.5h64.3v9.7h-64.3
-			c-0.4,0-0.8,0.4-0.8,0.8V101c0,0.4,0.4,0.8,0.8,0.8h64.3V111.5z"/>
-		<path class="st1" d="M757.4,38.5h-9.7c0-5.8,4.7-10.5,10.5-10.5h64.3v9.7h-64.3C757.8,37.7,757.4,38,757.4,38.5z"/>
-		<path class="st1" d="M232.9,111.1h-9.7V66.3c0-0.4-0.4-0.8-0.8-0.8h-58.7c-0.4,0-0.8,0.4-0.8,0.8v44.8h-9.7V66.3
-			c0-5.8,4.7-10.5,10.5-10.5h58.7c5.8,0,10.5,4.7,10.5,10.5V111.1z"/>
-		<path class="st1" d="M332.1,111.1l-10.8-43.8c-0.4-1.8-0.6-1.8-2.2-1.8h-47.4c-1.8,0-1.9,0.1-2.2,1.7l-10.8,43.9h-9.9L260,65.2
-			c0.7-3.5,3.1-9.5,11.7-9.5h47.4c8.5,0,11,6,11.7,9.5l11.2,45.8H332.1z"/>
-		<path class="st1" d="M314.6,47.2l-1.9-7.5c-0.4-1.8-0.6-1.8-2.2-1.8h-30.2c-1.8,0-1.9,0.1-2.2,1.7l-0.1,0.3l-1.9,7.2h-9.9l2.4-9.6
-			c0.7-3.6,3.2-9.4,11.7-9.4h30.2c8.4,0,10.9,5.8,11.7,9.4l2.5,9.6H314.6z"/>
-		<rect x="223.2" y="28.1" class="st1" width="9.7" height="19.2"/>
-		<rect x="153.2" y="28.1" class="st1" width="9.7" height="19.2"/>
-		<rect x="721.8" y="28" class="st1" width="9.7" height="19.3"/>
-		<rect x="932.9" y="92.8" class="st1" width="9.7" height="19.3"/>
-		<rect x="651.9" y="28" class="st1" width="9.7" height="19.3"/>
-		<path class="st1" d="M731.5,111.5h-9.7V66.3c0-0.4-0.4-0.8-0.8-0.8h-58.7c-0.4,0-0.8,0.4-0.8,0.8v45.2h-9.7V66.3
-			c0-5.8,4.7-10.5,10.5-10.5H721c5.8,0,10.5,4.7,10.5,10.5V111.5z"/>
-		<path class="st1" d="M912.7,111.5H854c-5.8,0-10.5-4.7-10.5-10.5V28h9.7v73c0,0.4,0.4,0.8,0.8,0.8h58.7c0.4,0,0.8-0.4,0.8-0.8V28
-			h9.7v73C923.2,106.7,918.5,111.5,912.7,111.5z"/>
-		<rect x="932.9" y="93.3" class="st1" width="9.7" height="18.3"/>
-		<rect x="530.2" y="28" class="st1" width="9.7" height="19.3"/>
-		<rect x="491.9" y="28" class="st1" width="9.7" height="19.3"/>
-		<path class="st1" d="M529.3,55.8h-65.1c-5.8,0-10.5,4.7-10.5,10.5v45.2h9.7V66.3c0-0.4,0.4-0.8,0.8-0.8h27.7v46h9.7v-46h27.7
-			c0.4,0,0.8,0.4,0.8,0.8v45.2h9.7V66.3C539.9,60.5,535.1,55.8,529.3,55.8z"/>
-		<rect x="453.7" y="28" class="st1" width="9.7" height="19.3"/>
-	</g>
+<g id="Group">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="1000" height="170">
+			
+				<feColorMatrix  type="matrix" values="-1 0 0 0 1  0 -1 0 0 1  0 0 -1 0 1  0 0 0 1 0" color-interpolation-filters="sRGB" result="source"/>
+			<feFlood  style="flood-color:white;flood-opacity:1" result="back"/>
+			<feBlend  in="source" in2="back" mode="normal"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="170" id="SVGID_1_">
+		<g class="st0">
+			<g>
+				<g>
+					<path class="st1" d="M121,130H57c-6.1,0-11-4.9-11-11V52c0-6.1,4.9-11,11-11h64v11H58l-0.2,67l63.2,0.2V130z"/>
+					<path class="st1" d="M411,130h-58c-6.1,0-11-4.9-11-11V85c0-6.1,4.9-11,11-11h58c6.1,0,11,4.9,11,11v34
+						C421.9,125,417,130,411,130z M353,84.9l-0.2,34.1l58,0.2c0.1,0,0.2-0.1,0.2-0.2V85L353,84.9z"/>
+					<path class="st1" d="M341.3,55.2c0-6.2,5-11.2,11.2-11.2H417v11h-64.5L341.3,55.2z"/>
+					<path class="st1" d="M612,130h-63c-6.1,0-11-4.9-11-11V85c0-6.1,4.9-11,11-11h63v11h-63l-0.2,34l63.2,0.2V130z"/>
+					<path class="st1" d="M536.3,55.2c0-6.2,5-11.2,11.2-11.2H612v11h-64.5L536.3,55.2z"/>
+					<path class="st1" d="M801,130h-63c-6.1,0-11-4.9-11-11V85c0-6.1,4.9-11,11-11h63v11h-63l-0.2,34l63.2,0.2V130z"/>
+					<path class="st1" d="M725.3,55.2c0-6.2,5-11.2,11.2-11.2H801v11h-64.5L725.3,55.2z"/>
+					<path class="st1" d="M221,130h-11V97l-58-0.2l-0.2,33.2H141V97c0-6.1,4.9-11,11-11h58c6.1,0,11,4.9,11,11V130z"/>
+					<path class="st1" d="M317,130.1l-6.7-31.8c-0.2-0.8-0.3-1.1-0.4-1.2c0,0-0.3-0.1-1.1-0.1h-55.6c-0.8,0-1.1,0.1-1.2,0.1
+						c0,0-0.2,0.3-0.3,1L245,130h-10.3l6.8-33.8c0.7-3.8,3.3-10.2,12.3-10.2h55.7c8.9,0,11.5,6.2,12.3,10l7.1,34H317V130.1z"/>
+					<path class="st1" d="M304,79.1l-6-22.9c-0.2-0.8-0.3-1.1-0.4-1.1c0,0-0.3-0.1-1.1-0.1h-29.2c-0.8,0-1.1,0.1-1.2,0.1
+						c0,0-0.2,0.3-0.3,1l-0.1,0.4L259.8,79h-11.2l6.2-25.3c0.8-3.7,3.4-9.7,12-9.7h29.4c8.6,0,11.2,5.9,12,9.7l6.2,25.3L304,79.1
+						L304,79.1z"/>
+					<rect x="210" y="44" class="st1" width="11" height="35"/>
+					<rect x="141" y="44" class="st1" width="11" height="35"/>
+					<path class="st1" d="M712,130h-11V97l-58-0.2l-0.2,33.2H632V97c0-6.1,4.9-11,11-11h58c6.1,0,11,4.9,11,11V130z"/>
+					<rect x="701" y="44" class="st1" width="11" height="35"/>
+					<rect x="632" y="44" class="st1" width="11" height="35"/>
+					<path class="st1" d="M890,130h-58c-6.1,0-11-4.9-11-11V44h11v75l58,0.2l0.2-75.2H901v75.1C901,125,896,130,890,130z"/>
+					<rect x="909" y="99" class="st1" width="11" height="31"/>
+					<rect x="512" y="44" class="st1" width="11" height="35"/>
+					<rect x="474" y="44" class="st1" width="11" height="35"/>
+					<path class="st1" d="M512.1,86H448c-6.1,0-11,4.9-11,11v33h11l0.2-33l26.8,0.1V130h10V97l27,0.1V130h11V97
+						C523.1,90.9,518.2,86,512.1,86z"/>
+					<rect x="437" y="44" class="st1" width="11" height="35"/>
+				</g>
+			</g>
+		</g>
+	</mask>
+	<polygon class="st2" points="949,170 0,170 0,0 949,0 1000,85 	"/>
 </g>
 </svg>

@@ -23,3 +23,6 @@ __Production__
 - `fonts` - copy fonts to dist folder
 - `browserSync` - serve assets with hot reload from `./src` folder
 - `clean:dist` - clean dist folder to prevent conflicts before build
+
+
+gulp build && git add . && git commit -m "fixes r1" && git push

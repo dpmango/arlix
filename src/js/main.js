@@ -25,6 +25,7 @@ $(document).ready(function () {
   });
 
   // PRELOADER
+  var preloaderVisible = true;
   var $div = $('.section--home');
   var bg = $div.css('background-image');
 
@@ -34,8 +35,18 @@ $(document).ready(function () {
       // set delay, so users with fast connection can see preloader :)
       setTimeout(function () {
         $('.preloader').addClass('ready');
+        preloaderVisible = false;
+        clearInterval(timerId);
       }, 1500);
     });
+  }
+  if (preloaderVisible) {
+    appendLetters();
+    timerId = setInterval(function () {
+      appendLetters();
+    }, 450);
+  } else {
+    clearInterval(timerId);
   }
 
   // LOGO ANIMATION
@@ -78,7 +89,7 @@ $(document).ready(function () {
     appendLetters();
     timerId = setInterval(function () {
       appendLetters();
-    }, 300);
+    }, 450);
   });
 
   $('.header__logo').on('mouseleave', function () {
@@ -172,11 +183,14 @@ $(document).ready(function () {
     // about animation
     if (nextSlide == 1) {
       $('.about-control').addClass('animate');
-      // trigger parent slider
-      setTimeout(triggerAbout, 100);
-      // triggerAbout();
     } else {
       $('.about-control').removeClass('animate');
+    }
+
+    // trigger parent slider
+    // currentSlide != 1 && 
+    if (nextSlide == 1) {
+      setTimeout(triggerAbout, 100);
     }
 
     // append class
@@ -189,21 +203,11 @@ $(document).ready(function () {
 
   function triggerAbout() {
     var activeSlide = $('.about-control__item.active').data('about');
-    if (activeSlide == 3) {
-      $('.about-control__item:first-child').click();
-      setTimeout(function () {
-        $('.about-control__item:nth-child(4)').click();
-      }, 300);
-    } else {
-      $('.about-control__item.active').next().click();
-      setTimeout(function () {
-        $('.about-control__item.active').prev().click();
-      }, 300);
-    }
+    // reinit about slider
+    $('.js-slick-about').slick('unslick');
+    initSlickAbout();
 
-    // $('.js-slick-about').slick('slickGoTo', activeSlide - 1);
-
-    // $('.js-slick-about .slick-slide:nth-child('+ activeSlide + 1 +')').addClass('slick-acitve');
+    $('.js-slick-about').slick('slickGoTo', activeSlide);
   }
 
   // SLICK NAVIGATION
@@ -223,30 +227,26 @@ $(document).ready(function () {
     // window.history.pushState("", "", hash);
   });
 
-  // SLICK ANIMATIONS
-  // $('.js-slick-sections').on('afterChange', function(event, slick, currentSlide){
-  //   $('.slick-active').removeClass('hidden');
-  //   $('.slick-active').addClass('animated bounce');
-  // });
-  //
-  // $('.js-slick-sections').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-  //     $('.slick-active').removeClass('animated bounce');
-  //     $('.slick-active').addClass('hidden');
-  // });
-
-
   // SLICK ABOUT
-  $('.js-slick-about').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    speed: 300,
-    vertical: false,
-    fade: true,
-    dots: false,
-    arrows: false,
-    centerPadding: 0,
-    lazyLoad: 'ondemand'
-  });
+  function initSlickAbout() {
+    $('.js-slick-about').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 300,
+      vertical: false,
+      fade: true,
+      dots: false,
+      arrows: false,
+      centerPadding: 0,
+      lazyLoad: 'ondemand',
+      responsive: [{
+        breakpoint: 768,
+        settings: {}
+      }]
+    });
+  }
+
+  initSlickAbout();
 
   // about navigation
   $('.about-control').on('click', '.about-control__item', function (e) {
@@ -295,15 +295,6 @@ $(document).ready(function () {
     $('.app').removeClass('tilt');
     $(this).closest('.modal').removeClass('active');
   });
-
-  // $(document).click(function (e) {
-  //   var value = $('.modal__container');
-  //   if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
-  //     $('.app').removeClass('tilt');
-  //     $(this).closest('.modal').removeClass('active');
-  //   }
-  // });
-
 
   ////////////////
   // YANDEX MAPS

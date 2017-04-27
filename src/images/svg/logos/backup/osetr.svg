@@ -7,7 +7,7 @@
 	.st0{fill:#FFFFFF;}
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:0.7278;}
 	.st2{fill:none;stroke:#FFFFFF;stroke-width:1.4556;}
-	.st3{fill:none;stroke:#FFFFFF;stroke-width:0.9098;stroke-miterlimit:22.9256;}
+	.st3{fill:#231F20;stroke:#FFFFFF;stroke-width:0.9098;stroke-miterlimit:22.9256;}
 </style>
 <g>
 	<polygon class="st0" points="200.7,113.3 219.7,113.3 219.7,116.8 204.6,116.8 204.6,142.6 200.7,142.6 200.7,113.3 	"/>

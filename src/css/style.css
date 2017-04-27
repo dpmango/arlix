@@ -908,58 +908,58 @@ body, html {
 }
 @-webkit-keyframes logoAJS {
     0% {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-        opacity: .5;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        opacity: .6;
         -webkit-transform: translate3d(0px, 0, 0);
                 transform: translate3d(0px, 0, 0);
     }
     100% {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         opacity: 0;
-        -webkit-transform: translate3d(-90px, 0, 0);
-                transform: translate3d(-90px, 0, 0);
+        -webkit-transform: translate3d(-60px, 0, 0);
+                transform: translate3d(-60px, 0, 0);
     }
 }
 @keyframes logoAJS {
     0% {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-        opacity: .5;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        opacity: .6;
         -webkit-transform: translate3d(0px, 0, 0);
                 transform: translate3d(0px, 0, 0);
     }
     100% {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         opacity: 0;
-        -webkit-transform: translate3d(-90px, 0, 0);
-                transform: translate3d(-90px, 0, 0);
+        -webkit-transform: translate3d(-60px, 0, 0);
+                transform: translate3d(-60px, 0, 0);
     }
 }
 @-webkit-keyframes logoXJS {
     0% {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-        opacity: .5;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        opacity: .6;
         -webkit-transform: translate3d(0px, 0, 0);
                 transform: translate3d(0px, 0, 0);
     }
     100% {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         opacity: 0;
-        -webkit-transform: translate3d(90px, 0, 0);
-                transform: translate3d(90px, 0, 0);
+        -webkit-transform: translate3d(60px, 0, 0);
+                transform: translate3d(60px, 0, 0);
     }
 }
 @keyframes logoXJS {
     0% {
-        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-        opacity: .5;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+        opacity: .6;
         -webkit-transform: translate3d(0px, 0, 0);
                 transform: translate3d(0px, 0, 0);
     }
     100% {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         opacity: 0;
-        -webkit-transform: translate3d(90px, 0, 0);
-                transform: translate3d(90px, 0, 0);
+        -webkit-transform: translate3d(60px, 0, 0);
+                transform: translate3d(60px, 0, 0);
     }
 }
 /* ICONS */
@@ -1016,7 +1016,7 @@ body, html {
 }
 .logo-snab {
     width: 200px;
-    height: 28px;
+    height: 34px;
 }
 /* buttons */
 button {}
@@ -1214,11 +1214,11 @@ button:focus {
     position: relative;
     text-transform: uppercase;
     font-size: 100px;
-    font-family: 'WebServeroff';
+    font-family: 'WebServeroff';/* &.animated *//*   .header__logo__a *//*     animation: logoA .9s linear infinite *//*   .header__logo__aa *//*     animation: logoAA .9s linear infinite *//*   .header__logo__aaa *//*     animation: logoAAA .9s linear infinite *//*   .header__logo__x *//*     animation: logoX .9s linear infinite *//*   .header__logo__xx *//*     animation: logoXX .9s linear infinite *//*   .header__logo__xxx *//*     animation: logoXXX .9s linear infinite */
 }
 .header__logo__a, .header__logo__aa, .header__logo__aaa, .header__logo__x, .header__logo__xx, .header__logo__xxx, .header__logo__ajs, .header__logo__xjs {
     position: absolute;
-    top: 0;
+    top: 0px;
     display: inline-block;
     -webkit-transition: all .9s linear;
     transition: all .9s linear;
@@ -1248,6 +1248,7 @@ button:focus {
             transform: translate3d(-15px, 0, 0);
 }
 .header__logo__ajs {
+    top: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     opacity: .5;
     -webkit-animation: logoAJS 1.8s linear;
@@ -1272,6 +1273,7 @@ button:focus {
             transform: translate3d(15px, 0, 0);
 }
 .header__logo__xjs {
+    top: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     opacity: .5;
     -webkit-animation: logoXJS 1.8s linear;
@@ -1280,61 +1282,37 @@ button:focus {
 .header__logo__main {
     display: inline-block;
 }
-.header__logo.animated .header__logo__a {
-    -webkit-animation: logoA .9s linear infinite;
-            animation: logoA .9s linear infinite;
-}
-.header__logo.animated .header__logo__aa {
-    -webkit-animation: logoAA .9s linear infinite;
-            animation: logoAA .9s linear infinite;
-}
-.header__logo.animated .header__logo__aaa {
-    -webkit-animation: logoAAA .9s linear infinite;
-            animation: logoAAA .9s linear infinite;
-}
-.header__logo.animated .header__logo__x {
-    -webkit-animation: logoX .9s linear infinite;
-            animation: logoX .9s linear infinite;
-}
-.header__logo.animated .header__logo__xx {
-    -webkit-animation: logoXX .9s linear infinite;
-            animation: logoXX .9s linear infinite;
-}
-.header__logo.animated .header__logo__xxx {
-    -webkit-animation: logoXXX .9s linear infinite;
-            animation: logoXXX .9s linear infinite;
-}
-.header__logo:hover .header__logo__a {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    opacity: 0;
-    -webkit-transform: translate3d(-90px, 0, 0);
-            transform: translate3d(-90px, 0, 0);
-}
-.header__logo:hover .header__logo__aa {
+.header__logo:hover .header__logo__a, .header__logo.animated .header__logo__a {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
     -webkit-transform: translate3d(-60px, 0, 0);
             transform: translate3d(-60px, 0, 0);
 }
-.header__logo:hover .header__logo__aaa {
+.header__logo:hover .header__logo__aa, .header__logo.animated .header__logo__aa {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+    -webkit-transform: translate3d(-45px, 0, 0);
+            transform: translate3d(-45px, 0, 0);
+}
+.header__logo:hover .header__logo__aaa, .header__logo.animated .header__logo__aaa {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
     -webkit-transform: translate3d(-30px, 0, 0);
             transform: translate3d(-30px, 0, 0);
 }
-.header__logo:hover .header__logo__x {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    opacity: 0;
-    -webkit-transform: translate3d(90px, 0, 0);
-            transform: translate3d(90px, 0, 0);
-}
-.header__logo:hover .header__logo__xx {
+.header__logo:hover .header__logo__x, .header__logo.animated .header__logo__x {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
     -webkit-transform: translate3d(60px, 0, 0);
             transform: translate3d(60px, 0, 0);
 }
-.header__logo:hover .header__logo__xxx {
+.header__logo:hover .header__logo__xx, .header__logo.animated .header__logo__xx {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
+    -webkit-transform: translate3d(45px, 0, 0);
+            transform: translate3d(45px, 0, 0);
+}
+.header__logo:hover .header__logo__xxx, .header__logo.animated .header__logo__xxx {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
     -webkit-transform: translate3d(30px, 0, 0);
