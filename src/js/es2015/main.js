@@ -25,20 +25,27 @@ $(document).ready(function(){
 
   // PRELOADER
   var preloaderVisible = true
-  var $div = $('.section--home');
-  var bg = $div.css('background-image');
 
-  if (bg) {
-    var src = bg.replace(/(^url\()|(\)$|[\"\'])/g, '');
-    var $img = $('<img>').attr('src', src).on('load', function() {
-      // set delay, so users with fast connection can see preloader :)
-      setTimeout(function(){
-        $('.preloader').addClass('ready');
-        preloaderVisible = false
-        clearInterval(timerId);
-      }, 1500)
-      });
+  function showPreloader(bg){
+
+    console.log(bg);
+    var bg = bg || $('.section--home').css('background-image')
+
+    if (bg) {
+      var src = bg.replace(/(^url\()|(\)$|[\"\'])/g, '');
+      var $img = $('<img>').attr('src', src).on('load', function() {
+        // set delay, so users with fast connection can see preloader :)
+        setTimeout(function(){
+          $('.preloader').addClass('ready');
+          preloaderVisible = false
+          clearInterval(timerId);
+        }, 1500)
+        });
+    }
   }
+
+  // showPreloader( $('.section--home').css('background-image') );
+
   if ( preloaderVisible ){
     appendLetters();
     timerId = setInterval(function() {
@@ -143,11 +150,15 @@ $(document).ready(function(){
       // set slide also
 
       if ( hash.indexOf('modalPortfolio') == 0 ){
+        // wait for modal image load
+        showPreloader( $('#'+ hash).find('.modal__content img').attr('src') );
+
         $('.js-slick-sections').slick('slickGoTo', 2 );
         $('.navi__list a:nth-child(3)').siblings().removeClass('active');
         $('.navi__list a:nth-child(3)').addClass('active');
 
       } else if ( hash.match("^modalAbout") ) {
+        showPreloader();
 
         $('.js-slick-sections').slick('slickGoTo', 1 );
         $('.navi__list a:nth-child(2)').siblings().removeClass('active');
@@ -156,6 +167,9 @@ $(document).ready(function(){
 
     } else {
       // if section
+
+      showPreloader();
+
       $('.navi__list a').each(function(i, val){
         if ( $(this).data('hash') == hash ){
           $(this).siblings().removeClass('active');
@@ -172,6 +186,8 @@ $(document).ready(function(){
         $('.app').addClass('section-3');
       }
     }
+  } else {
+    showPreloader();
   }
 
   // SLICK SECTIONS CALLBACK
@@ -318,6 +334,9 @@ $(document).ready(function(){
   $('.ico-close').on('click', function(){
     $('.app').removeClass('tilt');
     $(this).closest('.modal').removeClass('active');
+
+    // update hash on close
+    window.location.hash = $('.navi__list a').data('hash');
   });
 
 
