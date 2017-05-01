@@ -264,9 +264,9 @@ $(document).ready(function () {
       }
     });
 
-    if (currentSlide == slick.slideCount - 1) {
-      $('.js-slick-sections').slick('next');
-    }
+    // if ( currentSlide == slick.slideCount - 1 ){
+    //   $('.js-slick-sections').slick('next');
+    // }
   });
 
   // handle logo click
@@ -282,6 +282,9 @@ $(document).ready(function () {
   $("input[name='phone']").mask("9 (999) 999-9999");
   $("#tin").mask("99-9999999");
   $("#ssn").mask("999-99-9999");
+
+  // SCROLLBAR
+  $('.modal__content').scrollbar();
 
   // MODAL
   $("a[href^='#modal']").on('click', function (e) {
