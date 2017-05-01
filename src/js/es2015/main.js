@@ -104,7 +104,7 @@ $(document).ready(function(){
     slidesToScroll: 1,
     speed: 700,
     vertical: false,
-    adaptiveHeight: false,
+    adaptiveHeight: true,
     dots: false,
     arrows: false,
     centerPadding: 0,
@@ -192,7 +192,7 @@ $(document).ready(function(){
     }
 
     // trigger parent slider
-    // currentSlide != 1 && 
+    // currentSlide != 1 &&
     if ( nextSlide == 1 ){
       setTimeout(triggerAbout, 100)
     }
@@ -271,6 +271,10 @@ $(document).ready(function(){
         $(val).removeClass('active');
       }
     });
+
+    if ( currentSlide == slick.slideCount - 1 ){
+      $('.js-slick-sections').slick('next');
+    }
 
   });
 
