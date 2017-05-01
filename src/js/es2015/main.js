@@ -248,6 +248,10 @@ $(document).ready(function(){
         {
           breakpoint: 768,
           settings: {
+            draggable: false,
+            verticalSwiping: false,
+            swipe: false,
+            touchMove: false
           }
         }
       ]
@@ -263,7 +267,7 @@ $(document).ready(function(){
 
   // Slick about callback
   $('.js-slick-about').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    event.stopPropagation();
+
     $('.about-control__item').each(function(i,val){
       if ( $(val).data('about') == nextSlide ){
         $(val).addClass('active');
@@ -271,6 +275,7 @@ $(document).ready(function(){
         $(val).removeClass('active');
       }
     });
+    event.stopPropagation();
 
     // if ( currentSlide == slick.slideCount - 1 ){
     //   $('.js-slick-sections').slick('next');
