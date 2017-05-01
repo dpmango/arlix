@@ -128,6 +128,9 @@ body, html {
 .slick-list:focus {
     outline: none;
 }
+.slick-vertical .slick-slide {
+    border: 0;
+}
 .section {
     position: relative;
     min-height: 100vh;
