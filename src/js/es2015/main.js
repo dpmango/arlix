@@ -317,7 +317,8 @@ $(document).ready(function(){
 
 
   // SCROLLBAR
-  $('.modal__content').scrollbar();
+  // $('.modal__content').scrollbar();
+  // $('.modal').scrollbar();
 
   // MODAL
   $("a[href^='#modal']").on('click', function(e){
@@ -371,7 +372,7 @@ $(document).ready(function(){
 
     myMap.geoObjects.add(myPlacemark);
 
-    // вторая карта - наложение как фон
+    //вторая карта - наложение как фон
     myMap2 = new ymaps.Map("map-over", {
         center: coors,
         zoom: mapsZoom,

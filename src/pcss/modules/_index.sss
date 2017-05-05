@@ -71,6 +71,7 @@
     background: linear-gradient(to top, color(black a(90%)), color(black a(50%)))
     z-index: 2
   &__wrapper
+    padding-top: 5vh
     position: relative
     min-height: 100vh
     display: flex
@@ -111,9 +112,8 @@
         transition: all $transitionSpeed $ease
       &:hover
         &::after
-          height: 2px
-          left: -5px
-          right: -5px
+          left: 50%
+          right: 50%
 
 .js-slick-about .slick-active
   .about
@@ -237,6 +237,8 @@
       max-width: 100%
       opacity: .5
       transition: all $transitionSpeed $ease
+    .logo-snab
+      margin-left: 5px
 
 @media(max-height: 650px)
   .portfolio
@@ -267,8 +269,7 @@
 .contact
   position: relative
   width: 100%
-  height: 100%
-  min-height: 100vh
+  height: 100vh
   &::after
     display: block
     content: ' '
@@ -289,6 +290,7 @@
     -webkit-clip-path: circle(200px at center)
     clip-path: circle(200px at center)
     clip-path: url("#clip-shape")
+
 
 #map
   position: absolute 0
@@ -320,12 +322,17 @@
     opacity: .7
     margin-bottom: 5px
     span
-      opacity: .5
+      opacity: .1
     a
       &:hover
         opacity: 1
+    &--opate
+      opacity: 1
   &__credentials
     flex: 1 1 50%
+    border-left: 1px solid color(white a(20%))
+    margin-left: 20px
+    padding-left: 30px
   &__form
     margin-left: auto
     flex: 1 1 50%
@@ -333,8 +340,12 @@
     justify-content: flex-end
     align-items: flex-end
     &__fields
+      border-left: 1px solid color(white a(20%))
+      padding-left: 30px
       margin-right: 15px
       width: 400px
+    textarea
+      margin-bottom: -10px
     button
       position: relative
       display: inline-block
@@ -346,7 +357,7 @@
       border: 2px solid $colorYellow
       transition: all $transitionSpeed $ease
       cursor: pointer
-      margin-bottom: 10px
+      margin-bottom: 0px
       &:hover
         background: $colorYellow
       .ico
@@ -356,24 +367,24 @@
         transform: translate(-50%, -50%)
 
 .ui-input
-  margin-bottom: 10px
+  margin-bottom: 15px
   position: relative
   input, textarea
     font-size: 20px
     -webkit-appearance: none
-    border-radius: 5px
+    border-radius: 4px
     display: inline-block
     width: 100%
     border: none
     background: color(white a(10%))
-    padding: 13px 15px
+    padding: 10px 15px
     transition: all $transitionSpeed ease
     box-shadow: none
     &:focus
       outline: none
-      background: color(white a(60%))
+      background: color(white a(30%))
   textarea
-    max-height: 130px
+    max-height: 140px
   &:last-child
     margin-bottom: 0
 
@@ -404,21 +415,28 @@
         margin-right: 15px
         width: 300px
 
+@media(width <= 840px)
+  .contact
+    &__form
+      display: none
+
 @media(width <= 600px)
   .contact
     &__bottom
       height: 290px
-    &__form
-      display: none
 
 
 // MODAL
 .modal
-  position: fixed 0 0 0 0
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
   background: color(black a(50%))
   z-index: 99
   opacity: 0
   pointer-events: none
+  overflow-y: scroll
   transition: all .3s $ease
   &.active
     opacity: 1
@@ -465,8 +483,8 @@
       z-index: 9
       transform: translateY(-50%)
   &__content
-    overflow-y: scroll
-    height: calc(90vh - 100px)
+    overflow: visible
+    min-height: calc(90vh - 100px)
     picture
       font-size: 0
     img

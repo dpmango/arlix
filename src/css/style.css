@@ -186,8 +186,7 @@ body, html {
             align-items: center;
     -webkit-justify-content: center;
             justify-content: center;
-    background: -webkit-linear-gradient(55deg, #ff00e4, #ffd800);
-    background: linear-gradient(35deg, #ff00e4, #ffd800);
+    background: black;
     -webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
     -webkit-box-pack: center;
@@ -1369,7 +1368,7 @@ button:focus {
 /*       top: -14px */
 /* */
 /* SCROLLBAR MAC OS X ************** */
-.scrollbar-macosx > .scroll-element, .modal__content > .scroll-element {
+.scrollbar-macosx > .scroll-element {
     position: absolute;
     z-index: 10;
     margin: 0;
@@ -1377,7 +1376,7 @@ button:focus {
     border: none;
     background: none;
 }
-.scrollbar-macosx > .scroll-element div, .modal__content > .scroll-element div {
+.scrollbar-macosx > .scroll-element div {
     position: absolute;
     top: 0;
     left: 0;
@@ -1390,10 +1389,10 @@ button:focus {
     border: none;
     background: none;
 }
-.scrollbar-macosx > .scroll-element .scroll-element_track, .modal__content > .scroll-element .scroll-element_track {
+.scrollbar-macosx > .scroll-element .scroll-element_track {
     display: none;
 }
-.scrollbar-macosx > .scroll-element .scroll-bar, .modal__content > .scroll-element .scroll-bar {
+.scrollbar-macosx > .scroll-element .scroll-bar {
     display: block;
     border-radius: 7px;
     background-color: #6C6E71;
@@ -1403,13 +1402,13 @@ button:focus {
     -webkit-transition: opacity 0.2s linear;
     transition: opacity 0.2s linear;
 }
-.scrollbar-macosx > .scroll-element, .modal__content > .scroll-element {}
-.scrollbar-macosx > .scroll-element.scroll-draggable .scroll-bar, .modal__content > .scroll-element.scroll-draggable .scroll-bar {
+.scrollbar-macosx > .scroll-element {}
+.scrollbar-macosx > .scroll-element.scroll-draggable .scroll-bar {
     opacity: 0.7;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
     filter: alpha(opacity = 70);
 }
-.scrollbar-macosx > .scroll-element.scroll-x, .modal__content > .scroll-element.scroll-x {
+.scrollbar-macosx > .scroll-element.scroll-x {
     bottom: 0px;
     left: 0;
     overflow: visible;
@@ -1417,42 +1416,42 @@ button:focus {
     width: 100%;
     height: 0px;
 }
-.scrollbar-macosx > .scroll-element.scroll-y, .modal__content > .scroll-element.scroll-y {
+.scrollbar-macosx > .scroll-element.scroll-y {
     top: 0;
     right: 0px;
     min-height: 100%;
     width: 0px;
     height: 100%;
 }
-.scrollbar-macosx > .scroll-element.scroll-x .scroll-bar, .modal__content > .scroll-element.scroll-x .scroll-bar {
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-bar {
     top: -9px;
     min-width: 10px;
     height: 7px;
 }
-.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar, .modal__content > .scroll-element.scroll-y .scroll-bar {
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-bar {
     left: -9px;
     min-height: 10px;
     width: 7px;
 }
-.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer, .modal__content > .scroll-element.scroll-x .scroll-element_outer {
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer {
     left: 2px;
 }
-.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_size, .modal__content > .scroll-element.scroll-x .scroll-element_size {
+.scrollbar-macosx > .scroll-element.scroll-x .scroll-element_size {
     left: -4px;
 }
-.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_outer, .modal__content > .scroll-element.scroll-y .scroll-element_outer {
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_outer {
     top: 2px;
 }
-.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_size, .modal__content > .scroll-element.scroll-y .scroll-element_size {
+.scrollbar-macosx > .scroll-element.scroll-y .scroll-element_size {
     top: -4px;
 }
-.scrollbar-macosx > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size, .modal__content > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
+.scrollbar-macosx > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
     left: -11px;
 }
-.scrollbar-macosx > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size, .modal__content > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
+.scrollbar-macosx > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
     top: -11px;
 }
-.scrollbar-macosx:hover > .scroll-element .scroll-bar, .modal__content:hover > .scroll-element .scroll-bar {
+.scrollbar-macosx:hover > .scroll-element .scroll-bar {
     opacity: 0.7;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
     filter: alpha(opacity = 70);
@@ -2145,7 +2144,7 @@ button:focus {
 }
 .navi__list a:hover:not(.active) {}
 .navi__list a:hover:not(.active):before {
-    left: -40px;
+    left: -38px;
     width: 40px;
 }
 .navi__phone {
@@ -2326,6 +2325,7 @@ button:focus {
             justify-content: center;
     margin-right: auto;
     margin-left: auto;
+    padding-top: 5vh;
     min-height: 100vh;
     max-width: 570px;
     text-align: center;
@@ -2375,9 +2375,8 @@ button:focus {
 }
 .about__details a:hover {}
 .about__details a:hover:after {
-    right: -5px;
-    left: -5px;
-    height: 2px;
+    right: 50%;
+    left: 50%;
 }
 .js-slick-about .slick-active .about {}
 .js-slick-about .slick-active .about__wrapper {
@@ -2603,6 +2602,9 @@ button:focus {
     -webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
 }
+.portfolio__col .logo-snab {
+    margin-left: 5px;
+}
 @media(max-height: 650px) {
     .portfolio {}
     .portfolio__wrapper {
@@ -2635,9 +2637,8 @@ button:focus {
 /* CONTACT */
 .contact {
     position: relative;
-    min-height: 100vh;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 .contact svg {
     min-height: 100vh;
@@ -2725,11 +2726,15 @@ button:focus {
     opacity: .7;
 }
 .contact__line span {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-    opacity: .5;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+    opacity: .1;
 }
 .contact__line a {}
 .contact__line a:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+.contact__line--opate {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     opacity: 1;
 }
@@ -2737,6 +2742,9 @@ button:focus {
     -webkit-flex: 1 1 50%;
         -ms-flex: 1 1 50%;
             flex: 1 1 50%;
+    margin-left: 20px;
+    padding-left: 30px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
     -webkit-box-flex: 1;
 }
 .contact__form {
@@ -2758,10 +2766,13 @@ button:focus {
     -webkit-box-align: end;
         -ms-flex-align: end;
 }
+.contact__form textarea {
+    margin-bottom: -10px;
+}
 .contact__form button {
     position: relative;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: 75px;
     height: 75px;
     border: 2px solid #ffd800;
@@ -2786,18 +2797,20 @@ button:focus {
 }
 .contact__form__fields {
     margin-right: 15px;
+    padding-left: 30px;
     width: 400px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 .ui-input {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .ui-input input, .ui-input textarea {
     display: inline-block;
-    padding: 13px 15px;
+    padding: 10px 15px;
     width: 100%;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     background: #ffffff;
     background: rgba(255, 255, 255, 0.1);
     -webkit-box-shadow: none;
@@ -2810,10 +2823,10 @@ button:focus {
 .ui-input input:focus, .ui-input textarea:focus {
     outline: none;
     background: #ffffff;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.3);
 }
 .ui-input textarea {
-    max-height: 130px;
+    max-height: 140px;
 }
 .ui-input:last-child {
     margin-bottom: 0;
@@ -2849,23 +2862,26 @@ button:focus {
         width: 300px;
     }
 }
+@media(max-width: 840px) {
+    .contact {}
+    .contact__form {
+        display: none;
+    }
+}
 @media(max-width: 600px) {
     .contact {}
     .contact__bottom {
         height: 290px;
-    }
-    .contact__form {
-        display: none;
     }
 }
 /* MODAL */
 .modal {
     position: fixed;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
     z-index: 99;
+    overflow-y: scroll;
+    width: 100%;
     background: #000000;
     background: rgba(0, 0, 0, 0.5);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -2946,9 +2962,9 @@ button:focus {
     background: #822492;
 }
 .modal__content {
-    overflow-y: scroll;
-    height: -webkit-calc(90vh - 100px);
-    height: calc(90vh - 100px);
+    overflow: visible;
+    min-height: -webkit-calc(90vh - 100px);
+    min-height: calc(90vh - 100px);
 }
 .modal__content picture {
     font-size: 0;
