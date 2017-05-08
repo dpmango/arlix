@@ -387,9 +387,14 @@ $(document).ready(function(){
   }
 
   function synchronizeMaps (firstMap, secondMap) {
-    firstMap.events.add(["boundschange", "wheel", "actiontick", "sizechange", "marginchange"], function (e) {
+    firstMap.events.add(["boundschange", "wheel", "sizechange", "marginchange"], function (e) {
       secondMap.setCenter(firstMap.getCenter(), firstMap.getZoom());
     })
+    firstMap.events.add(["actiontick"], function (e) {
+      var tickParser = e.get('tick')
+      secondMap.setGlobalPixelCenter(tickParser.globalPixelCenter)
+    });
+
   }
 
 

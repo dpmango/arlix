@@ -1031,6 +1031,10 @@ body, html {
     width: 200px;
     height: 34px;
 }
+.logo-cyber {
+    width: 200px;
+    height: 34px;
+}
 /* buttons */
 button {}
 button:focus {
@@ -2228,6 +2232,7 @@ button:focus {
 }
 .home__title {
     margin-top: 10px;
+    margin-right: -.05em;
     margin-bottom: 20px;
     margin-left: auto;
     padding-bottom: 20px;
@@ -2722,12 +2727,12 @@ button:focus {
 }
 .contact__line {
     margin-bottom: 5px;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
 }
 .contact__line span {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-    opacity: .1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    opacity: .4;
 }
 .contact__line a {}
 .contact__line a:hover {
