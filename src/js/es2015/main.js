@@ -27,8 +27,6 @@ $(document).ready(function(){
   var preloaderVisible = true
 
   function showPreloader(bg){
-
-    console.log(bg);
     var bg = bg || $('.section--home').css('background-image')
 
     if (bg) {
@@ -207,21 +205,10 @@ $(document).ready(function(){
       $('.about-control').removeClass('animate');
     }
 
-    // trigger parent slider
-    // currentSlide != 1 &&
-    if ( nextSlide == 1 ){
-      setTimeout(triggerAbout, 100)
-    }
-
     // append class
     $('.app').removeClass('section-0').removeClass('section-1').removeClass('section-2').removeClass('section-3');
     $('.app').addClass('section-'+nextSlide+'');
 
-  });
-  $('.js-slick-sections').on('beforeChange', function(){
-    console.log('slick sections changed');
-    // triger resize just in case ???
-    // _window.trigger('resize');
   });
 
   // SLICK NAVIGATION
@@ -238,52 +225,9 @@ $(document).ready(function(){
     // save state
     window.location.hash = hash;
 
-    // window.history.pushState("", "", hash);
   });
 
   // SLICK ABOUT
-
-  // this is middleware for sections nav
-  function triggerAbout(){
-    // SLICK IMPEMEMENTATION
-    // - not working because of not setting active class to the child slider
-    // var activeSlide = $('.about-control__item.active').data('about');
-    // // reinit about slider
-    // $('.js-slick-about').slick('unslick');
-    // initSlickAbout();
-    //
-    // $('.js-slick-about').slick('slickGoTo', activeSlide );
-
-    // REFACTOR TO OWL CHILD SLIDER
-
-  }
-
-  // function initSlickAbout(){
-  //   $('.js-slick-about').slick({
-  //     slidesToShow: 1,
-  //     slidesToScroll: 1,
-  //     speed: 300,
-  //     vertical: false,
-  //     fade: true,
-  //     dots: false,
-  //     arrows: false,
-  //     centerPadding: 0,
-  //     lazyLoad: 'ondemand',
-  //     responsive: [
-  //       {
-  //         breakpoint: 768,
-  //         settings: {
-  //           draggable: false,
-  //           verticalSwiping: false,
-  //           swipe: false,
-  //           touchMove: false
-  //         }
-  //       }
-  //     ]
-  //   });
-  // }
-
-  // initSlickAbout();
 
   function initOWLAbout(){
     $('.js-slick-about').owlCarousel({
@@ -299,22 +243,9 @@ $(document).ready(function(){
 
   // about navigation
   $('.about-control').on('click', '.about-control__item', function(e){
-    // $('.js-slick-about').slick('slickGoTo', $(this).data('about'));
     $('.js-slick-about').trigger('to.owl.carousel', $(this).data('about'));
   });
 
-  // Slick about callback
-  // $('.js-slick-about').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-  //
-  //   $('.about-control__item').each(function(i,val){
-  //     if ( $(val).data('about') == nextSlide ){
-  //       $(val).addClass('active');
-  //     } else {
-  //       $(val).removeClass('active');
-  //     }
-  //   });
-  //   event.stopPropagation();
-  // });
 
   $('.js-slick-about').on('changed.owl.carousel', function(event){
     var nextSlide = event.page.index;
