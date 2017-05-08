@@ -2907,6 +2907,7 @@ button:focus {
 .modal__wrapper {
     position: relative;
     margin-top: 10vh;
+    margin-bottom: 10vh;
     width: 100%;
     height: 90vh;
 }
