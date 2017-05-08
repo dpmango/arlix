@@ -228,22 +228,47 @@ $(document).ready(function(){
   });
 
   // SLICK ABOUT
+  var _owlAbout = $('.js-slick-about')
 
-  function initOWLAbout(){
-    $('.js-slick-about').owlCarousel({
-      items: 1,
-      loop: true,
-      margin: 0,
-      nav: false,
-      URLhashListener: true,
+  _owlAbout.owlCarousel({
+    items: 1,
+    loop: true,
+    margin: 0,
+    nav: false,
+    animateOut: 'fadeOut',
+    animateIn: 'fadeIn',
+    URLhashListener: true,
+    touchDrag: false,
+    mouseDrag: false,
+    onInitialized: owlAboutInitialized
+  });
+
+  function owlAboutInitialized(){
+    addSwipeEventsForAnimation();
+  }
+
+  // custom triggers on swipe
+  function addSwipeEventsForAnimation() {
+    var targetEl = document.querySelector('.section--about');
+    var hamEvents = new Hammer( targetEl , {});
+
+    hamEvents.on("swiperight", function(){
+      console.log('swipe right');
+      _owlAbout.trigger('prev.owl.carousel');
+    });
+    hamEvents.on("swipeleft", function(){
+      console.log('swipe left');
+      _owlAbout.trigger('next.owl.carousel');
+    });
+
+    _owlAbout.on('drag.owl.carousel',function(){
+      _owlAbout.trigger('translated.owl.carousel');
     });
   }
-  initOWLAbout();
-
 
   // about navigation
   $('.about-control').on('click', '.about-control__item', function(e){
-    $('.js-slick-about').trigger('to.owl.carousel', $(this).data('about'));
+    _owlAbout.trigger('to.owl.carousel', $(this).data('about'));
   });
 
 

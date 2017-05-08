@@ -2334,17 +2334,19 @@ button:focus {
     min-height: 100vh;
     max-width: 570px;
     text-align: center;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
     -webkit-transition: opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
     transition: opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
     transition: transform .4s ease-out, opacity .45s .15s ease-in;
     transition: transform .4s ease-out, opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
-    -webkit-transform: scale(.8);
-        -ms-transform: scale(.8);
-            transform: scale(.8);
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;/* opacity: 0 */
+        -ms-flex-pack: center;
 }
 .about__title {
     margin-bottom: 5vh;
@@ -2381,8 +2383,8 @@ button:focus {
     right: 50%;
     left: 50%;
 }
-.js-slick-about .slick-active .about {}
-.js-slick-about .slick-active .about__wrapper {
+.owl-item.active .about {}
+.owl-item.active .about__wrapper {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     opacity: 1;
     -webkit-transform: scale(1);
