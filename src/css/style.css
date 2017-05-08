@@ -2334,8 +2334,6 @@ button:focus {
     min-height: 100vh;
     max-width: 570px;
     text-align: center;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    opacity: 0;
     -webkit-transition: opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
     transition: opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
     transition: transform .4s ease-out, opacity .45s .15s ease-in;
@@ -2346,7 +2344,7 @@ button:focus {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
+        -ms-flex-pack: center;/* opacity: 0 */
 }
 .about__title {
     margin-bottom: 5vh;

@@ -214,17 +214,10 @@ $(document).ready(function () {
     $('.app').addClass('section-' + nextSlide + '');
   });
   $('.js-slick-sections').on('beforeChange', function () {
-    _window.trigger('resize');
+    console.log('slick sections changed');
+    // triger resize just in case ???
+    // _window.trigger('resize');
   });
-
-  function triggerAbout() {
-    var activeSlide = $('.about-control__item.active').data('about');
-    // reinit about slider
-    $('.js-slick-about').slick('unslick');
-    initSlickAbout();
-
-    $('.js-slick-about').slick('slickGoTo', activeSlide);
-  }
 
   // SLICK NAVIGATION
   $('.navi__list').on('click', 'a', function (e) {
@@ -244,39 +237,79 @@ $(document).ready(function () {
   });
 
   // SLICK ABOUT
-  function initSlickAbout() {
-    $('.js-slick-about').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      speed: 300,
-      vertical: false,
-      fade: true,
-      dots: false,
-      arrows: false,
-      centerPadding: 0,
-      lazyLoad: 'ondemand',
-      responsive: [{
-        breakpoint: 768,
-        settings: {
-          draggable: false,
-          verticalSwiping: false,
-          swipe: false,
-          touchMove: false
-        }
-      }]
+
+  // this is middleware for sections nav
+  function triggerAbout() {}
+  // SLICK IMPEMEMENTATION
+  // - not working because of not setting active class to the child slider
+  // var activeSlide = $('.about-control__item.active').data('about');
+  // // reinit about slider
+  // $('.js-slick-about').slick('unslick');
+  // initSlickAbout();
+  //
+  // $('.js-slick-about').slick('slickGoTo', activeSlide );
+
+  // REFACTOR TO OWL CHILD SLIDER
+
+  // function initSlickAbout(){
+  //   $('.js-slick-about').slick({
+  //     slidesToShow: 1,
+  //     slidesToScroll: 1,
+  //     speed: 300,
+  //     vertical: false,
+  //     fade: true,
+  //     dots: false,
+  //     arrows: false,
+  //     centerPadding: 0,
+  //     lazyLoad: 'ondemand',
+  //     responsive: [
+  //       {
+  //         breakpoint: 768,
+  //         settings: {
+  //           draggable: false,
+  //           verticalSwiping: false,
+  //           swipe: false,
+  //           touchMove: false
+  //         }
+  //       }
+  //     ]
+  //   });
+  // }
+
+  // initSlickAbout();
+
+  function initOWLAbout() {
+    $('.js-slick-about').owlCarousel({
+      items: 1,
+      loop: true,
+      margin: 0,
+      nav: false,
+      URLhashListener: true
     });
   }
-
-  initSlickAbout();
+  initOWLAbout();
 
   // about navigation
   $('.about-control').on('click', '.about-control__item', function (e) {
-    $('.js-slick-about').slick('slickGoTo', $(this).data('about'));
+    // $('.js-slick-about').slick('slickGoTo', $(this).data('about'));
+    $('.js-slick-about').trigger('to.owl.carousel', $(this).data('about'));
   });
 
   // Slick about callback
-  $('.js-slick-about').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+  // $('.js-slick-about').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  //
+  //   $('.about-control__item').each(function(i,val){
+  //     if ( $(val).data('about') == nextSlide ){
+  //       $(val).addClass('active');
+  //     } else {
+  //       $(val).removeClass('active');
+  //     }
+  //   });
+  //   event.stopPropagation();
+  // });
 
+  $('.js-slick-about').on('changed.owl.carousel', function (event) {
+    var nextSlide = event.page.index;
     $('.about-control__item').each(function (i, val) {
       if ($(val).data('about') == nextSlide) {
         $(val).addClass('active');
@@ -285,10 +318,6 @@ $(document).ready(function () {
       }
     });
     event.stopPropagation();
-
-    // if ( currentSlide == slick.slideCount - 1 ){
-    //   $('.js-slick-sections').slick('next');
-    // }
   });
 
   // handle logo click
@@ -299,17 +328,10 @@ $(document).ready(function () {
     $('.js-slick-sections').slick('slickGoTo', 0);
   });
 
-  // Masked input
-  $("#date").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
-  $("input[name='phone']").mask("9 (999) 999-9999");
-  $("#tin").mask("99-9999999");
-  $("#ssn").mask("999-99-9999");
-
-  // SCROLLBAR
-  // $('.modal__content').scrollbar();
-  // $('.modal').scrollbar();
-
+  //////////
   // MODAL
+  //////////
+
   $("a[href^='#modal']").on('click', function (e) {
     var targetModal = $(this).attr('href');
     $('.app').addClass('tilt');
