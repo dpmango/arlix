@@ -88,8 +88,8 @@ html {
         -ms-flex-direction: column;
             flex-direction: column;
     min-height: 100vh;
-    -webkit-transition: all .7s .15s ease-out;
-    transition: all .7s .15s ease-out;
+    -webkit-transition: all .7s ease-out;
+    transition: all .7s ease-out;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
 }

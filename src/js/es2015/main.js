@@ -475,7 +475,7 @@ $(document).ready(function(){
   ////////////////
   // YANDEX MAPS
   ////////////////
-  // ymaps.ready(init);
+  ymaps.ready(init);
 
   var myMap, myMap2, myPlacemark, synchroListeners;
   var coors = [55.747115, 37.539078];
@@ -483,25 +483,25 @@ $(document).ready(function(){
 
   // Инициализируем карты
   function init(){
-    myMap = new ymaps.Map("map", {
-        center: coors,
-        zoom: mapsZoom,
-        controls: []
-    });
-
-    // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
-
-    // немного замедляем скролл
-    myMap.options.set('scrollZoomSpeed', 1.25);
-
-    myPlacemark = new ymaps.Placemark(coors, {
-        hintContent: 'ARLIX!',
-        balloonContent: 'Россия, Москва, Пресненская набережная, 8с1'
-    }, {
-        preset: 'islands#redDotIcon'
-    });
-
-    myMap.geoObjects.add(myPlacemark);
+    // myMap = new ymaps.Map("map", {
+    //     center: coors,
+    //     zoom: mapsZoom,
+    //     controls: []
+    // });
+    //
+    // // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+    //
+    // // немного замедляем скролл
+    // myMap.options.set('scrollZoomSpeed', 1.25);
+    //
+    // myPlacemark = new ymaps.Placemark(coors, {
+    //     hintContent: 'ARLIX!',
+    //     balloonContent: 'Россия, Москва, Пресненская набережная, 8с1'
+    // }, {
+    //     preset: 'islands#redDotIcon'
+    // });
+    //
+    // myMap.geoObjects.add(myPlacemark);
 
     //вторая карта - наложение как фон
     myMap2 = new ymaps.Map("map-over", {
@@ -513,7 +513,7 @@ $(document).ready(function(){
     myMap2.options.set('scrollZoomSpeed', 1.25);
 
     // синхронизация карт
-    synchroListeners = synchronizeMaps(myMap, myMap2);
+    //synchroListeners = synchronizeMaps(myMap, myMap2);
 
   }
 
