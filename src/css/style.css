@@ -2862,6 +2862,7 @@ button:focus {
 .modal__container {
     margin-top: 10vh;
     margin-right: auto;
+    margin-bottom: 10vh;
     margin-left: auto;
     max-width: 1000px;
     background: white;

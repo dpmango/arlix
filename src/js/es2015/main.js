@@ -285,7 +285,7 @@ $(document).ready(function(){
 
       if ( hash.indexOf('modalPortfolio') == 0 ){
         // wait for modal image load
-        showPreloader( $('#'+ hash).find('.modal__content img').attr('src') );
+        showPreloader( $('#'+ hash).find('.modal__content img:first-child').attr('src') );
 
         $('.js-slick-sections').slick('slickGoTo', 2 );
         $('.navi__list a:nth-child(3)').siblings().removeClass('active');
@@ -297,6 +297,8 @@ $(document).ready(function(){
         $('.js-slick-sections').slick('slickGoTo', 1 );
         $('.navi__list a:nth-child(2)').siblings().removeClass('active');
         $('.navi__list a:nth-child(2)').addClass('active');
+        
+        $('.about-control').addClass('animate');
       }
 
     } else {
