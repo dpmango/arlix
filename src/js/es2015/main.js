@@ -446,14 +446,29 @@ $(document).ready(function(){
   });
 
   // close modal
-  $('.ico-close').on('click', function(){
+  function modalExit(that){
     $('.app').removeClass('tilt');
-    $(this).closest('.modal').removeClass('active');
+    $(that).closest('.modal').removeClass('active');
 
     // update hash on close
     window.location.hash = $('.navi__list a').data('hash');
+  }
+
+  $('.ico-close').on('click', function(){
+    modalExit( this );
   });
 
+  $(document).mouseup(function (e) {
+      var container = new Array();
+      // which areas are clickable
+      container.push($('.modal__container'));
+
+      $.each(container, function(key, value) {
+          if (!$(value).is(e.target) && $(value).has(e.target).length === 0) {
+            modalExit(value);
+          }
+      });
+    });
 
   ////////////////
   // YANDEX MAPS

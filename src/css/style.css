@@ -2862,7 +2862,6 @@ button:focus {
 .modal__container {
     margin-top: 10vh;
     margin-right: auto;
-    margin-bottom: 10vh;
     margin-left: auto;
     max-width: 1000px;
     background: white;
@@ -2922,6 +2921,18 @@ button:focus {
 }
 .modal__content img {
     max-width: 100%;
+}
+.modal__content-text {
+    padding: 30px;
+    color: #333;
+}
+.modal__content-text p {
+    font-size: 22px;
+}
+.modal__content-text__heading {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 40px;
 }
 @media(max-width: 1020px) {
     .modal {}
