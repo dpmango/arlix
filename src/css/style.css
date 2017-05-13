@@ -100,8 +100,8 @@ html {
     -webkit-box-flex: 1;
 }
 .app.tilt {
-    -webkit-filter: blur(5px);
-            filter: blur(5px);/* transform-origin: 50% 100% *//* transform: perspective(600px) rotateX(7deg) */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;/* filter: blur(5px) *//* transform-origin: 50% 100% *//* transform: perspective(600px) rotateX(7deg) */
 }
 .js-slick-sections {
     padding: 0;
