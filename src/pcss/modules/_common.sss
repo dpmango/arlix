@@ -32,7 +32,7 @@
       display: inline-block
       position: absolute
       top: 0px
-      transition: all .9s linear
+      //transition: all .9s linear
     &__a, &__aa, &__aaa, &__ajs
       left: 0
     &__x, &__xx, &__xxx, &__xjs
@@ -49,39 +49,12 @@
     &__ajs
       top: 0
       opacity: .5
-      // transform: translate3d(0px, 0, 0)
-      animation: logoAJS 1.8s linear
-    &__x
-      opacity: .1
-      transform: translate3d(45px, 0, 0)
-    &__xx
-      opacity: .2
-      transform: translate3d(30px, 0, 0)
-    &__xxx
-      opacity: .4
-      transform: translate3d(15px, 0, 0)
     &__xjs
       top: 0
       opacity: .5
-      // transform: translate3d(0px, 0, 0)
-      animation: logoXJS 1.8s linear
-
 
     &__main
       display: inline-block
-    // &.animated
-    //   .header__logo__a
-    //     animation: logoA .9s linear infinite
-    //   .header__logo__aa
-    //     animation: logoAA .9s linear infinite
-    //   .header__logo__aaa
-    //     animation: logoAAA .9s linear infinite
-    //   .header__logo__x
-    //     animation: logoX .9s linear infinite
-    //   .header__logo__xx
-    //     animation: logoXX .9s linear infinite
-    //   .header__logo__xxx
-    //     animation: logoXXX .9s linear infinite
     &:hover, &.animated
       .header__logo__a
         opacity: 0

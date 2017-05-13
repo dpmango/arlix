@@ -1,3 +1,79 @@
+// JQUERY PAUSE
+(function() {
+	var $ = jQuery,
+		pauseId = 'jQuery.pause',
+		uuid = 1,
+		oldAnimate = $.fn.animate,
+		anims = {};
+
+	function now() { return new Date().getTime(); }
+
+	$.fn.animate = function(prop, speed, easing, callback) {
+		var optall = $.speed(speed, easing, callback);
+		optall.complete = optall.old; // unwrap callback
+		return this.each(function() {
+			// check pauseId
+			if (! this[pauseId])
+				this[pauseId] = uuid++;
+			// start animation
+			var opt = $.extend({}, optall);
+			oldAnimate.apply($(this), [prop, $.extend({}, opt)]);
+			// store data
+			anims[this[pauseId]] = {
+				run: true,
+				prop: prop,
+				opt: opt,
+				start: now(),
+				done: 0
+			};
+		});
+	};
+
+	$.fn.pause = function() {
+		return this.each(function() {
+			// check pauseId
+			if (! this[pauseId])
+				this[pauseId] = uuid++;
+			// fetch data
+			var data = anims[this[pauseId]];
+			if (data && data.run) {
+				data.done += now() - data.start;
+				if (data.done > data.opt.duration) {
+					// remove stale entry
+					delete anims[this[pauseId]];
+				} else {
+					// pause animation
+					$(this).stop();
+					data.run = false;
+				}
+			}
+		});
+	};
+
+	$.fn.resume = function() {
+		return this.each(function() {
+			// check pauseId
+			if (! this[pauseId])
+				this[pauseId] = uuid++;
+			// fetch data
+			var data = anims[this[pauseId]];
+			if (data && ! data.run) {
+				// resume animation
+				data.opt.duration -= data.done;
+				data.done = 0;
+				data.run = true;
+				data.start = now();
+				oldAnimate.apply($(this), [data.prop, $.extend({}, data.opt)]);
+			}
+		});
+	};
+})();
+
+
+/////////////////
+// READY FUNCTION
+/////////////////
+
 $(document).ready(function(){
 
   const _window = $(window);
@@ -45,59 +121,117 @@ $(document).ready(function(){
   // showPreloader( $('.section--home').css('background-image') );
 
   if ( preloaderVisible ){
+    logoPaused = false;
     appendLetters();
     timerId = setInterval(function() {
       appendLetters()
-    }, 450);
+    }, 1800);
   } else {
+    logoPaused = true;
     clearInterval(timerId);
   }
 
   // LOGO ANIMATION
+  var letterA, letterAA, letterAAA, letterX, letterXX, letterXXX;
+  var logoPaused = true;
+  var logoFirstIteration = true;
+  var timerId;
+
   function appendLetters(){
     function appendA(){
-      var letter = $('<div class="header__logo__ajs">a</div>').insertBefore('.header__logo__main');
-      setTimeout(function(){
-        letter.remove();
-      },1800);
+      letterA = $('<div class="header__logo__ajs">a</div>').insertBefore('.header__logo__main')
+        .animate({
+          opacity: 0,
+          left: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
     }
+    function appendAA(){
+      letterAA = $('<div class="header__logo__ajs">a</div>').insertBefore('.header__logo__main')
+        .animate({
+          opacity: 0,
+          left: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
+    }
+    function appendAAA(){
+      letterAAA = $('<div class="header__logo__ajs">a</div>').insertBefore('.header__logo__main')
+        .animate({
+          opacity: 0,
+          left: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
+    }
+
     function appendX(){
-      var letter =  $('<div class="header__logo__xjs">x</div>').insertAfter('.header__logo__main');
-
-      setTimeout(function(){
-        letter.remove();
-      }, 1800);
-
-      // .animate({
-      //   'dumb': '90'
-      // }, {
-      //   step: function (now, fx) {
-      //       $(this).css({"transform": "translate3d(" + now + "px, 0px, 0px)"});
-      //   },
-      //   duration: 900,
-      //   easing: 'linear',
-      //   queue: false,
-      //   complete: function () {
-      //     $(this).remove();
-      //   }
-      // }, 'linear');
+      letterX =  $('<div class="header__logo__xjs">x</div>').insertAfter('.header__logo__main')
+        .animate({
+          opacity: 0,
+          right: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
+    }
+    function appendXX(){
+      letterXX =  $('<div class="header__logo__xjs">x</div>').insertAfter('.header__logo__main')
+        .animate({
+          opacity: 0,
+          right: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
+    }
+    function appendXXX(){
+      letterXXX =  $('<div class="header__logo__xjs">x</div>').insertAfter('.header__logo__main')
+        .animate({
+          opacity: 0,
+          right: "-=60"
+        }, 1800, 'linear', function() {
+          $(this).remove();
+        });
     }
 
-    appendA();
-    appendX();
-
+    // if logo is not paused
+    if ( !logoPaused ){
+      appendA();
+      setTimeout(appendAA, 600);
+      setTimeout(appendAAA, 1200);
+      appendX();
+      setTimeout(appendXX, 600);
+      setTimeout(appendXXX, 1200);
+    }
   }
 
-  // fire on hover
-  var timerId;
-  $('.header__logo').on('mouseenter', function(){
+  // HOVER FUNCTION
+  $('.header__logo').not('.animated').on('mouseenter', function(){
+    logoPaused = false;
+    logoFirstIteration = false;
+    // we are checking if letters was moved alread
+    if ( !logoFirstIteration ){
+      letterA.resume();
+      letterAA.resume();
+      letterAAA.resume();
+      letterX.resume();
+      letterXX.resume();
+      letterXXX.resume();
+    }
     appendLetters();
     timerId = setInterval(function() {
       appendLetters()
-    }, 450);
+    }, 1800);
   });
 
-  $('.header__logo').on('mouseleave', function(){
+  $('.header__logo').not('.animated').on('mouseleave', function(){
+    logoPaused = true;
+    letterA.pause();
+    letterAA.pause();
+    letterAAA.pause();
+    letterX.pause();
+    letterXX.pause();
+    letterXXX.pause();
     clearInterval(timerId);
   });
 
