@@ -429,34 +429,37 @@
 
 // MODAL
 .modal
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
+  position: absolute 0
+  overflow: hidden
   background: color(black a(50%))
   z-index: 99
   opacity: 0
   pointer-events: none
-  overflow-y: scroll
   transition: all .3s $ease
   &.active
     opacity: 1
     pointer-events: all
-    .modal__container
+    .modal__scrollable
       transform: translate3d(0,0,0)
-  &__wrapper
-    margin-top: 10vh
+  &__scrollable
     position: relative
+    min-height: 100vh
+    height: 100vh
+    max-height: 100vh
+    overflow-y: scroll
+    transform: translate3d(0,100%,0)
+    transition: all .4s .15s $ease
+  &__wrapper
+    position: absolute
+    min-height: 110vh
     width: 100%
-    height: 90vh
-    margin-bottom: 10vh
   &__container
+    margin-top: 10vh
+    margin-bottom: 10vh
     max-width: 1000px
     background: white
     margin-left: auto
     margin-right: auto
-    transform: translate3d(0,100%,0)
-    transition: all .4s .15s $ease
   &__head
     display: flex
     justify-content: center
@@ -485,8 +488,7 @@
       z-index: 9
       transform: translateY(-50%)
   &__content
-    overflow: visible
-    min-height: calc(90vh - 100px)
+    min-height: calc(90vh - 110px)
     picture
       font-size: 0
     img

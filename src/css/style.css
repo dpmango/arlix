@@ -49,6 +49,9 @@ body, html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+html {
+    position: relative;
+}
 @media(max-width: 768px) {
     body, html {
         font-size: 18px;
@@ -2816,12 +2819,13 @@ button:focus {
 }
 /* MODAL */
 .modal {
-    position: fixed;
+    position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
     z-index: 99;
-    overflow-y: scroll;
-    width: 100%;
+    overflow: hidden;
     background: #000000;
     background: rgba(0, 0, 0, 0.5);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -2835,26 +2839,33 @@ button:focus {
     opacity: 1;
     pointer-events: all;
 }
-.modal.active .modal__container {
+.modal.active .modal__scrollable {
     -webkit-transform: translate3d(0,0,0);
             transform: translate3d(0,0,0);
 }
-.modal__wrapper {
+.modal__scrollable {
     position: relative;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    width: 100%;
-    height: 90vh;
-}
-.modal__container {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1000px;
-    background: white;
+    overflow-y: scroll;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
     -webkit-transition: all .4s .15s ease-in-out;
     transition: all .4s .15s ease-in-out;
     -webkit-transform: translate3d(0,100%,0);
             transform: translate3d(0,100%,0);
+}
+.modal__wrapper {
+    position: absolute;
+    min-height: 110vh;
+    width: 100%;
+}
+.modal__container {
+    margin-top: 10vh;
+    margin-right: auto;
+    margin-bottom: 10vh;
+    margin-left: auto;
+    max-width: 1000px;
+    background: white;
 }
 .modal__head {
     position: relative;
@@ -2903,9 +2914,8 @@ button:focus {
     background: #822492;
 }
 .modal__content {
-    overflow: visible;
-    min-height: -webkit-calc(90vh - 100px);
-    min-height: calc(90vh - 100px);
+    min-height: -webkit-calc(90vh - 110px);
+    min-height: calc(90vh - 110px);
 }
 .modal__content picture {
     font-size: 0;
