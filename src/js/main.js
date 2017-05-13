@@ -458,7 +458,7 @@ $(document).ready(function () {
   ////////////////
   // YANDEX MAPS
   ////////////////
-  ymaps.ready(init);
+  // ymaps.ready(init);
 
   var myMap, myMap2, myPlacemark, synchroListeners;
   var coors = [55.747115, 37.539078];
