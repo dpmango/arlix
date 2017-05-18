@@ -2845,6 +2845,7 @@ button:focus {
 }
 .modal__scrollable {
     position: relative;
+    overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     min-height: 100vh;
