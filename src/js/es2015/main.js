@@ -432,6 +432,8 @@ $(document).ready(function(){
     $('.js-slick-sections').slick('slickGoTo', 0);
   });
 
+  // SCROLLBARS
+  $('.scrollbar-macosx').scrollbar();
 
   //////////
   // MODAL
@@ -483,25 +485,25 @@ $(document).ready(function(){
 
   // Инициализируем карты
   function init(){
-    // myMap = new ymaps.Map("map", {
-    //     center: coors,
-    //     zoom: mapsZoom,
-    //     controls: []
-    // });
-    //
-    // // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
-    //
-    // // немного замедляем скролл
-    // myMap.options.set('scrollZoomSpeed', 1.25);
-    //
-    // myPlacemark = new ymaps.Placemark(coors, {
-    //     hintContent: 'ARLIX!',
-    //     balloonContent: 'Россия, Москва, Пресненская набережная, 8с1'
-    // }, {
-    //     preset: 'islands#redDotIcon'
-    // });
-    //
-    // myMap.geoObjects.add(myPlacemark);
+    myMap = new ymaps.Map("map", {
+        center: coors,
+        zoom: mapsZoom,
+        controls: []
+    });
+
+    // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+
+    // немного замедляем скролл
+    myMap.options.set('scrollZoomSpeed', 1.25);
+
+    myPlacemark = new ymaps.Placemark(coors, {
+        hintContent: 'ARLIX!',
+        balloonContent: 'Россия, Москва, Пресненская набережная, 8с1'
+    }, {
+        preset: 'islands#redDotIcon'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
 
     //вторая карта - наложение как фон
     myMap2 = new ymaps.Map("map-over", {
