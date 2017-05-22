@@ -515,7 +515,7 @@ $(document).ready(function(){
     myMap2.options.set('scrollZoomSpeed', 1.25);
 
     // синхронизация карт
-    //synchroListeners = synchronizeMaps(myMap, myMap2);
+    synchroListeners = synchronizeMaps(myMap, myMap2);
 
   }
 
