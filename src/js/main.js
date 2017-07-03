@@ -325,18 +325,18 @@ $(document).ready(function () {
       }
     });
 
-    // about animation
-    if (nextSlide == 1) {
-      $('.about-control').addClass('animate');
-    } else {
-      $('.about-control').removeClass('animate');
-    }
-
     // append class
     $('.app').removeClass('section-0').removeClass('section-1').removeClass('section-2').removeClass('section-3');
     $('.app').addClass('section-' + nextSlide + '');
   });
-
+  $('.js-slick-sections').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    // about animation
+    if (currentSlide == 1) {
+      $('.about-control').addClass('animate');
+    } else {
+      $('.about-control').removeClass('animate');
+    }
+  });
   // SLICK NAVIGATION
   $('.navi__list').on('click', 'a', function (e) {
     // url actions

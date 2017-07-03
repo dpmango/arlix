@@ -145,17 +145,17 @@
     size: 75px
     opacity: .5
     border: 2px solid color(white a(20%))
-    transform: translate3d(0px, 20vh, 0)
+    transform: translate3d(0px, 25vh, 0)
     transition: border $transitionSpeed 0s $ease, transform .8s cubic-bezier(0.075, 0.82, 0.165, 1)
     cursor: pointer
     &:nth-child(1)
-      transition: border $transitionSpeed 0s $ease, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(2)
-      transition: border $transitionSpeed 0s $ease, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(3)
-      transition: border $transitionSpeed 0s $ease, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(4)
-      transition: border $transitionSpeed 0s $ease, transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1)
     &.active
       border-color: $colorYellow
     &:last-child
@@ -509,7 +509,7 @@
   .modal
     &__container
       margin-left: 0
-      margin-right: 0 
+      margin-right: 0
 
 @media($tablet)
   .modal

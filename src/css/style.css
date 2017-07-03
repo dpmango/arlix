@@ -2374,36 +2374,36 @@ button:focus {
     transition: border .25s 0s ease-in-out, -webkit-transform .8s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -webkit-transform: translate3d(0px, 20vh, 0);
-            transform: translate3d(0px, 20vh, 0);
+    -webkit-transform: translate3d(0px, 25vh, 0);
+            transform: translate3d(0px, 25vh, 0);
     -webkit-box-pack: center;
         -ms-flex-pack: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
 }
 .about-control__item:nth-child(1) {
+    -webkit-transition: border .25s 0s ease-in-out, -webkit-transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: border .25s 0s ease-in-out, -webkit-transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: border .25s 0s ease-in-out, transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: border .25s 0s ease-in-out, transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.about-control__item:nth-child(2) {
     -webkit-transition: border .25s 0s ease-in-out, -webkit-transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, -webkit-transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.about-control__item:nth-child(2) {
+.about-control__item:nth-child(3) {
     -webkit-transition: border .25s 0s ease-in-out, -webkit-transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, -webkit-transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.about-control__item:nth-child(3) {
+.about-control__item:nth-child(4) {
     -webkit-transition: border .25s 0s ease-in-out, -webkit-transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, -webkit-transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition: border .25s 0s ease-in-out, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.about-control__item:nth-child(4) {
-    -webkit-transition: border .25s 0s ease-in-out, -webkit-transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition: border .25s 0s ease-in-out, -webkit-transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition: border .25s 0s ease-in-out, transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition: border .25s 0s ease-in-out, transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .about-control__item.active {
     border-color: #ffd800;
@@ -2940,7 +2940,7 @@ button:focus {
 @media(max-width: 1020px) {
     .modal {}
     .modal__container {
-        margin-right: 0 ;
+        margin-right: 0;
         margin-left: 0;
     }
 }
