@@ -2792,6 +2792,7 @@ button:focus {
     border-radius: 5px;
     background: #ffffff;
     background: rgba(255, 255, 255, 0.1);
+    color: #888;
     line-height: 1;
     cursor: pointer;
     -webkit-transition: all .25s ease;
