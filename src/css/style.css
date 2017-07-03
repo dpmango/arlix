@@ -2831,8 +2831,8 @@ button:focus {
     background: rgba(0, 0, 0, 0.5);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
-    -webkit-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
     pointer-events: none;
 }
 .modal.active {
@@ -2852,8 +2852,8 @@ button:focus {
     min-height: 100vh;
     max-height: 100vh;
     height: 100vh;
-    -webkit-transition: all .4s .15s ease-in-out;
-    transition: all .4s .15s ease-in-out;
+    -webkit-transition: all .3s 0s ease-in-out;
+    transition: all .3s 0s ease-in-out;
     -webkit-transform: translate3d(0,100%,0);
             transform: translate3d(0,100%,0);
 }
