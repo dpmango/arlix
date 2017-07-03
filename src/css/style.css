@@ -2940,8 +2940,8 @@ button:focus {
 @media(max-width: 1020px) {
     .modal {}
     .modal__container {
-        margin-right: 20px;
-        margin-left: 20px;
+        margin-right: 0;
+        margin-left: 0;
     }
 }
 @media(max-width: 768px) {
