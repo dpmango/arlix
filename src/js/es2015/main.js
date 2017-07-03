@@ -124,17 +124,18 @@ $(document).ready(function(){
     appendLetters();
     timerId = setInterval(function() {
       appendLetters()
-    }, 1800);
+    }, 600);
   } else {
     clearInterval(timerId);
   }
 
   // LOGO ANIMATION
-  var letterA, letterAA, letterAAA, letterX, letterXX, letterXXX;
+  var letterA, letterX;
   var logoPaused = false;
   var timerId;
 
-  function appendLetters(action){
+  function appendLetters(action, count){
+		var count = count | 1
     var target = '';
     if ( action == 'break' ){
       target = '.header__logo--primary .header__logo__main'
@@ -143,25 +144,7 @@ $(document).ready(function(){
       target = '.header__logo__main'
     }
     function appendA(){
-      letterA = $('<div class="header__logo__ajs">a</div>').insertBefore(target)
-        .animate({
-          opacity: 0,
-          left: "-=60"
-        }, 1800, 'linear', function() {
-          $(this).remove();
-        });
-    }
-    function appendAA(){
-      letterAA = $('<div class="header__logo__ajs">a</div>').insertBefore(target)
-        .animate({
-          opacity: 0,
-          left: "-=60"
-        }, 1800, 'linear', function() {
-          $(this).remove();
-        });
-    }
-    function appendAAA(){
-      letterAAA = $('<div class="header__logo__ajs">a</div>').insertBefore(target)
+      $('<div class="header__logo__ajs">a</div>').insertBefore(target)
         .animate({
           opacity: 0,
           left: "-=60"
@@ -171,25 +154,7 @@ $(document).ready(function(){
     }
 
     function appendX(){
-      letterX =  $('<div class="header__logo__xjs">x</div>').insertAfter(target)
-        .animate({
-          opacity: 0,
-          right: "-=60"
-        }, 1800, 'linear', function() {
-          $(this).remove();
-        });
-    }
-    function appendXX(){
-      letterXX =  $('<div class="header__logo__xjs">x</div>').insertAfter(target)
-        .animate({
-          opacity: 0,
-          right: "-=60"
-        }, 1800, 'linear', function() {
-          $(this).remove();
-        });
-    }
-    function appendXXX(){
-      letterXXX =  $('<div class="header__logo__xjs">x</div>').insertAfter(target)
+      $('<div class="header__logo__xjs">x</div>').insertAfter(target)
         .animate({
           opacity: 0,
           right: "-=60"
@@ -198,30 +163,23 @@ $(document).ready(function(){
         });
     }
 
-    // action handler
-    appendA();
-    setTimeout(appendAA, 600);
-    setTimeout(appendAAA, 1200);
-    appendX();
-    setTimeout(appendXX, 600);
-    setTimeout(appendXXX, 1200);
-
-    if ( action == "break" ){
-      setTimeout(stopAnimation, 1750);
-    }
+		for (var i = 0; i < count; i++) {
+			setTimeout(appendA, 600 * i);
+			setTimeout(appendX, 600 * i);
+		}
   }
 
   function stopAnimation(){
-    letterA.pause();
-    letterAA.pause();
-    letterAAA.pause();
-    letterX.pause();
-    letterXX.pause();
-    letterXXX.pause();
+    // letterA.pause();
+    // letterAA.pause();
+    // letterAAA.pause();
+    // letterX.pause();
+    // letterXX.pause();
+    // letterXXX.pause();
   }
 
   // HOVER FUNCTION
-  appendLetters('break');
+  appendLetters('break',3);
   $('.header__logo').not('.animated').on('mouseenter', function(){
     // we are checking if letters was moved alread
     $('.header__logo__xjs').resume();
@@ -229,11 +187,11 @@ $(document).ready(function(){
     appendLetters();
     timerId = setInterval(function() {
       appendLetters()
-    }, 1800);
+    }, 600);
   });
 
   $('.header__logo').not('.animated').on('mouseleave', function(){
-    stopAnimation();
+    // stopAnimation();
     clearInterval(timerId);
   });
 
