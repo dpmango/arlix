@@ -2318,8 +2318,8 @@ button:focus {
 }
 .about__details a:hover {}
 .about__details a:hover:after {
-    right: 50%;
-    left: 50%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 0;
 }
 .owl-item.active .about {}
 .owl-item.active .about__wrapper {
