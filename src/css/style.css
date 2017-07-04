@@ -107,14 +107,14 @@ html {
 .js-slick-sections {
     padding: 0;
 }
-.js-slick-sections .slick-active .home, .js-slick-sections .slick-active .portfolio__wrapper {
+.js-slick-sections .slick-active .home, .js-slick-sections .slick-active .portfolio__wrapper, .js-slick-sections .slick-active .about .container {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     opacity: 1;
     -webkit-transform: scale(1);
         -ms-transform: scale(1);
             transform: scale(1);
 }
-.home, .portfolio__wrapper {
+.home, .portfolio__wrapper, .about .container {
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     opacity: 0;
     -webkit-transition: opacity .45s .15s ease-in, -webkit-transform .4s ease-out;
@@ -124,6 +124,9 @@ html {
     -webkit-transform: scale(.8);
         -ms-transform: scale(.8);
             transform: scale(.8);
+}
+.about .container {
+    z-index: 3;
 }
 .slick-list {
     margin: 0;
@@ -2751,7 +2754,7 @@ button:focus {
 }
 .ui-input input, .ui-input textarea {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 8px 10px 6px 10px;
     width: 100%;
     border: none;
     border-radius: 4px;
@@ -2759,10 +2762,36 @@ button:focus {
     background: rgba(255, 255, 255, 0.1);
     -webkit-box-shadow: none;
             box-shadow: none;
+    color: white;
     font-size: 20px;
+    font-family: 'UKIJQolyazma';
     -webkit-transition: all .25s ease;
     transition: all .25s ease;
     -webkit-appearance: none;
+}
+.ui-input input::-webkit-input-placeholder, .ui-input textarea::-webkit-input-placeholder {
+    color: #ffffff;
+    color: rgba(255, 255, 255, 0.3);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+.ui-input input::-moz-placeholder, .ui-input textarea::-moz-placeholder {
+    color: #ffffff;
+    color: rgba(255, 255, 255, 0.3);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+.ui-input input:-ms-input-placeholder, .ui-input textarea:-ms-input-placeholder {
+    color: #ffffff;
+    color: rgba(255, 255, 255, 0.3);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+.ui-input input::placeholder, .ui-input textarea::placeholder {
+    color: #ffffff;
+    color: rgba(255, 255, 255, 0.3);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
 }
 .ui-input input:focus, .ui-input textarea:focus {
     outline: none;

@@ -69,15 +69,18 @@ html
   padding: 0
 
   .slick-active
-    .home, .portfolio__wrapper
+    .home, .portfolio__wrapper, .about .container
       opacity: 1
       transform: scale(1)
 
-.home, .portfolio__wrapper
+.home, .portfolio__wrapper, .about .container
   transform: scale(.8)
   opacity: 0
   transition: transform .4s ease-out, opacity .45s .15s ease-in
 
+.about .container
+  z-index: 3
+  
 .slick-list
   outline: none
   margin: 0
