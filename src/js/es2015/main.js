@@ -147,7 +147,7 @@ $(document).ready(function(){
       $('<div class="header__logo__ajs">a</div>').insertBefore(target)
         .animate({
           opacity: 0,
-          left: "-=60"
+          left: "-60"
         }, 1800, 'linear', function() {
           $(this).remove();
         });
@@ -157,7 +157,7 @@ $(document).ready(function(){
       $('<div class="header__logo__xjs">x</div>').insertAfter(target)
         .animate({
           opacity: 0,
-          right: "-=60"
+          right: "-60"
         }, 1800, 'linear', function() {
           $(this).remove();
         });
@@ -167,16 +167,37 @@ $(document).ready(function(){
 			setTimeout(appendA, 600 * i);
 			setTimeout(appendX, 600 * i);
 		}
+
+		if (action=='break') {
+			setTimeout(function(){
+				stopAnimation();
+			}, 1750);
+		}
   }
 
   function stopAnimation(){
-    // letterA.pause();
-    // letterAA.pause();
-    // letterAAA.pause();
-    // letterX.pause();
-    // letterXX.pause();
-    // letterXXX.pause();
-  }
+		var closestStep = getClosestStep();
+		if(closestStep <= 10){
+			setTimeout(pauseAnimated, (10 - closestStep) * 30); // 30 = anitation duration / pixels
+		}else {
+			setTimeout(pauseAnimated, 900 - (closestStep * 30));
+		}
+  }// 600 - (closestStep / 60) * 1800 + 300
+	// period - (closestStep / pixels) * whole duration + time to be at needed place
+
+	function pauseAnimated(){
+		$('.header__logo').find('.header__logo__ajs, .header__logo__xjs').pause();
+    clearInterval(timerId);
+	}
+
+	function getClosestStep(){
+		return -1 * parseFloat(
+				$('.header__logo__main')
+				.siblings('.header__logo__ajs')
+				.last()
+				.css('left')
+			);
+	}
 
   // HOVER FUNCTION
   appendLetters('break',3);
@@ -184,15 +205,20 @@ $(document).ready(function(){
     // we are checking if letters was moved alread
     $('.header__logo__xjs').resume();
     $('.header__logo__ajs').resume();
-    appendLetters();
-    timerId = setInterval(function() {
-      appendLetters()
-    }, 600);
+
+		var closestStep = getClosestStep();
+		var resumeIn = 600 - (closestStep * 30);
+		setTimeout(continueCreating, resumeIn < 0 ? 0 : resumeIn);
   });
 
+	function continueCreating(){
+		appendLetters();
+		timerId = setInterval(function() {
+			appendLetters();
+		}, 600);
+	}
   $('.header__logo').not('.animated').on('mouseleave', function(){
-    // stopAnimation();
-    clearInterval(timerId);
+    stopAnimation();
   });
 
   ////////////////
