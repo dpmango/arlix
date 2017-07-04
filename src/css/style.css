@@ -665,6 +665,11 @@ html {
 .pt100 {
     padding-top: 100px;
 }
+@media(max-width: 480px) {
+    .hidden-xxs {
+        display: none !important;
+    }
+}
 
 /* 2. Elements */
 /*ANIMATION */
@@ -2190,6 +2195,9 @@ button:focus {
     padding: 5px 10px;
     background: black;
     line-height: 1;
+}
+.home__service span i {
+    font-style: normal;
 }
 .home__service span:before {
     position: absolute;
