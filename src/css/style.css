@@ -2853,7 +2853,8 @@ button:focus {
 @media(max-width: 600px) {
     .contact {}
     .contact__bottom {
-        height: 290px;
+        padding-bottom: 20vh;
+        height: 320px;
     }
 }
 /* MODAL */
