@@ -123,17 +123,18 @@ $(document).ready(function () {
     appendLetters();
     timerId = setInterval(function () {
       appendLetters();
-    }, 1800);
+    }, 600);
   } else {
     clearInterval(timerId);
   }
 
   // LOGO ANIMATION
-  var letterA, letterAA, letterAAA, letterX, letterXX, letterXXX;
+  var letterA, letterX;
   var logoPaused = false;
   var timerId;
 
-  function appendLetters(action) {
+  function appendLetters(action, count) {
+    var count = count | 1;
     var target = '';
     if (action == 'break') {
       target = '.header__logo--primary .header__logo__main';
@@ -142,92 +143,74 @@ $(document).ready(function () {
       target = '.header__logo__main';
     }
     function appendA() {
-      letterA = $('<div class="header__logo__ajs">a</div>').insertBefore(target).animate({
+      $('<div class="header__logo__ajs">a</div>').insertBefore(target).animate({
         opacity: 0,
-        left: "-=60"
-      }, 1800, 'linear', function () {
-        $(this).remove();
-      });
-    }
-    function appendAA() {
-      letterAA = $('<div class="header__logo__ajs">a</div>').insertBefore(target).animate({
-        opacity: 0,
-        left: "-=60"
-      }, 1800, 'linear', function () {
-        $(this).remove();
-      });
-    }
-    function appendAAA() {
-      letterAAA = $('<div class="header__logo__ajs">a</div>').insertBefore(target).animate({
-        opacity: 0,
-        left: "-=60"
+        left: "-60"
       }, 1800, 'linear', function () {
         $(this).remove();
       });
     }
 
     function appendX() {
-      letterX = $('<div class="header__logo__xjs">x</div>').insertAfter(target).animate({
+      $('<div class="header__logo__xjs">x</div>').insertAfter(target).animate({
         opacity: 0,
-        right: "-=60"
-      }, 1800, 'linear', function () {
-        $(this).remove();
-      });
-    }
-    function appendXX() {
-      letterXX = $('<div class="header__logo__xjs">x</div>').insertAfter(target).animate({
-        opacity: 0,
-        right: "-=60"
-      }, 1800, 'linear', function () {
-        $(this).remove();
-      });
-    }
-    function appendXXX() {
-      letterXXX = $('<div class="header__logo__xjs">x</div>').insertAfter(target).animate({
-        opacity: 0,
-        right: "-=60"
+        right: "-60"
       }, 1800, 'linear', function () {
         $(this).remove();
       });
     }
 
-    // action handler
-    appendA();
-    setTimeout(appendAA, 600);
-    setTimeout(appendAAA, 1200);
-    appendX();
-    setTimeout(appendXX, 600);
-    setTimeout(appendXXX, 1200);
+    for (var i = 0; i < count; i++) {
+      setTimeout(appendA, 600 * i);
+      setTimeout(appendX, 600 * i);
+    }
 
-    if (action == "break") {
-      setTimeout(stopAnimation, 1750);
+    if (action == 'break') {
+      setTimeout(function () {
+        stopAnimation();
+      }, 1750);
     }
   }
 
   function stopAnimation() {
-    letterA.pause();
-    letterAA.pause();
-    letterAAA.pause();
-    letterX.pause();
-    letterXX.pause();
-    letterXXX.pause();
+    var closestStep = getClosestStep();
+    if (closestStep <= 10) {
+      setTimeout(pauseAnimated, (10 - closestStep) * 30); // 30 = anitation duration / pixels
+    } else {
+      setTimeout(pauseAnimated, 900 - closestStep * 30);
+    }
+  } // 600 - (closestStep / 60) * 1800 + 300
+  // period - (closestStep / pixels) * whole duration + time to be at needed place
+
+  function pauseAnimated() {
+    $('.header__logo').find('.header__logo__ajs, .header__logo__xjs').pause();
+    clearInterval(timerId);
+  }
+
+  function getClosestStep() {
+    return -1 * parseFloat($('.header__logo__main').siblings('.header__logo__ajs').last().css('left'));
   }
 
   // HOVER FUNCTION
-  appendLetters('break');
+  appendLetters('break', 3);
   $('.header__logo').not('.animated').on('mouseenter', function () {
     // we are checking if letters was moved alread
     $('.header__logo__xjs').resume();
     $('.header__logo__ajs').resume();
+
+    var closestStep = getClosestStep();
+    var resumeIn = 600 - closestStep * 30;
+    setTimeout(continueCreating, resumeIn < 0 ? 0 : resumeIn);
+  });
+
+  function continueCreating() {
     appendLetters();
     timerId = setInterval(function () {
       appendLetters();
-    }, 1800);
-  });
-
+    }, 600);
+  }
   $('.header__logo').not('.animated').on('mouseleave', function () {
     stopAnimation();
-    clearInterval(timerId);
   });
 
   ////////////////
@@ -325,18 +308,18 @@ $(document).ready(function () {
       }
     });
 
-    // about animation
-    if (nextSlide == 1) {
-      $('.about-control').addClass('animate');
-    } else {
-      $('.about-control').removeClass('animate');
-    }
-
     // append class
     $('.app').removeClass('section-0').removeClass('section-1').removeClass('section-2').removeClass('section-3');
     $('.app').addClass('section-' + nextSlide + '');
   });
-
+  $('.js-slick-sections').on('afterChange', function (event, slick, currentSlide, nextSlide) {
+    // about animation
+    if (currentSlide == 1) {
+      $('.about-control').addClass('animate');
+    } else {
+      $('.about-control').removeClass('animate');
+    }
+  });
   // SLICK NAVIGATION
   $('.navi__list').on('click', 'a', function (e) {
     // url actions

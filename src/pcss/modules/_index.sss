@@ -113,8 +113,7 @@
         transition: all $transitionSpeed $ease
       &:hover
         &::after
-          left: 50%
-          right: 50%
+          opacity: 0
 
 .owl-item.active
   .about
@@ -146,17 +145,17 @@
     size: 75px
     opacity: .5
     border: 2px solid color(white a(20%))
-    transform: translate3d(0px, 20vh, 0)
+    transform: translate3d(0px, 25vh, 0)
     transition: border $transitionSpeed 0s $ease, transform .8s cubic-bezier(0.075, 0.82, 0.165, 1)
     cursor: pointer
     &:nth-child(1)
-      transition: border $transitionSpeed 0s $ease, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .0s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(2)
-      transition: border $transitionSpeed 0s $ease, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .2s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(3)
-      transition: border $transitionSpeed 0s $ease, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .4s cubic-bezier(0.075, 0.82, 0.165, 1)
     &:nth-child(4)
-      transition: border $transitionSpeed 0s $ease, transform .8s .8s cubic-bezier(0.075, 0.82, 0.165, 1)
+      transition: border $transitionSpeed 0s $ease, transform .8s .6s cubic-bezier(0.075, 0.82, 0.165, 1)
     &.active
       border-color: $colorYellow
     &:last-child
@@ -308,7 +307,7 @@
 
 .contact
   &__bottom
-    padding: 25px 0
+    padding: 18px 0
     position: absolute
     bottom: 0
     height: 300px
@@ -408,6 +407,7 @@
       padding: 16px 15px 9px 15px
       transition: all $transitionSpeed ease
       cursor: pointer
+      color: #888
 
 @media($desktop)
   .contact
@@ -435,7 +435,7 @@
   z-index: 99
   opacity: 0
   pointer-events: none
-  transition: all .3s $ease
+  transition: all .4s $ease
   &.active
     opacity: 1
     pointer-events: all
@@ -450,7 +450,7 @@
     overflow-x: hidden
     -webkit-overflow-scrolling: touch
     transform: translate3d(0,100%,0)
-    transition: all .4s .15s $ease
+    transition: all .3s 0s $ease
   &__wrapper
     position: absolute
     min-height: 110vh
@@ -509,8 +509,8 @@
 @media(width <= 1020px)
   .modal
     &__container
-      margin-left: 20px
-      margin-right: 20px
+      margin-left: 0
+      margin-right: 0
 
 @media($tablet)
   .modal
