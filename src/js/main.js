@@ -131,7 +131,9 @@ $(document).ready(function () {
   // LOGO ANIMATION
   var letterA, letterX;
   var logoPaused = false;
-  var timerId;
+  var timerId,
+      mouseOnLogo = true,
+      timeoutId;
 
   function appendLetters(action, count) {
     var count = count | 1;
@@ -184,6 +186,7 @@ $(document).ready(function () {
 
   function pauseAnimated() {
     $('.header__logo').find('.header__logo__ajs, .header__logo__xjs').pause();
+    clearTimeout(timeoutId);
     clearInterval(timerId);
   }
 
@@ -197,19 +200,22 @@ $(document).ready(function () {
     // we are checking if letters was moved alread
     $('.header__logo__xjs').resume();
     $('.header__logo__ajs').resume();
-
+    mouseOnLogo = true;
     var closestStep = getClosestStep();
     var resumeIn = 600 - closestStep * 30;
-    setTimeout(continueCreating, resumeIn < 0 ? 0 : resumeIn);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(continueCreating, resumeIn < 0 ? 0 : resumeIn);
   });
 
   function continueCreating() {
     appendLetters();
+    // if (!mouseOnLogo) return;
     timerId = setInterval(function () {
       appendLetters();
     }, 600);
   }
   $('.header__logo').not('.animated').on('mouseleave', function () {
+    mouseOnLogo = false;
     stopAnimation();
   });
 
@@ -458,8 +464,6 @@ $(document).ready(function () {
       controls: []
     });
 
-    // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
-
     // немного замедляем скролл
     myMap.options.set('scrollZoomSpeed', 1.25);
 
@@ -480,7 +484,11 @@ $(document).ready(function () {
     });
 
     myMap2.options.set('scrollZoomSpeed', 1.25);
-
+    var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+    if (width < 992) {
+      myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+      myMap2.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+    }
     // синхронизация карт
     synchroListeners = synchronizeMaps(myMap, myMap2);
   }
