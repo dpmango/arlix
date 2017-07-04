@@ -481,7 +481,6 @@ $(document).ready(function(){
         controls: []
     });
 
-    // myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
 
     // немного замедляем скролл
     myMap.options.set('scrollZoomSpeed', 1.25);
@@ -503,7 +502,11 @@ $(document).ready(function(){
     });
 
     myMap2.options.set('scrollZoomSpeed', 1.25);
-
+		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		if (width < 992) {
+			myMap.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+			myMap2.behaviors.disable(["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]);
+		}
     // синхронизация карт
     synchroListeners = synchronizeMaps(myMap, myMap2);
 
